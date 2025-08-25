@@ -2,10 +2,10 @@
 <nav class="pc-sidebar">
     <div class="navbar-wrapper">
         <div class="m-header">
-            <a href="/dashboard/dashboard" class="b-brand">
+            <a href="{{ route('backoffice.dashboard') }}" class="b-brand">
                 <!-- ========   Change your logo from here   ============ -->
                 <img src="{{ URL::asset('build/images/logo-dark.svg') }}" alt="" class="logo logo-lg">
-                <img src="{{ URL::asset('build/images/favicon.svg') }}" alt="" class="logo logo-sm">
+                <img src="{{ asset('assets/img/favicons/favicon.svg') }}" alt="" class="logo logo-sm">
             </a>
         </div>
         <div class="tab-container">

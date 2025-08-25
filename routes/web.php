@@ -1,31 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Models\Media;
+use Illuminate\Support\Facades\Response;
+// Custom media route for UUID-based URLs
+Route::get('/media/{uuid}/{conversion}.jpg', function ($uuid, $conversion) {
+$media = Media::where('uuid', $uuid)->firstOrFail();
 
 
-Auth::routes();
+$conversion = $conversion === 'original' ? '' : $conversion;
+$path = $media->getPath($conversion);
 
 
-// Define a group of routes with 'auth' middleware applied
-Route::middleware(['auth'])->group(function () {
-    // Define a GET route for the root URL ('/')
-    Route::get('/', function () {
-        // Return a view named 'index' when accessing the root URL
-        return view('index');
-    });
+abort_unless(file_exists($path), 404);
 
-    // Define a GET route with dynamic placeholders for route parameters
-    Route::get('{routeName}/{name?}', [HomeController::class, 'pageView']);
-});
+
+return Response::file($path);
+})->where('conversion', '[a-zA-Z0-9_-]+');
+// Load Frontoffice routes
+require __DIR__ . '/frontoffice.php';
+
+// Load Backoffice routes
+require __DIR__ . '/backoffice.php';

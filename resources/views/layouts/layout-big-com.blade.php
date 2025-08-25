@@ -3,19 +3,19 @@
   <!-- [Head] start -->
 
   <head>
-    <title>@yield('title') | Light Able Laravel 11 Admin & Dashboard Template</title>
+    <title>@yield('title') | DentalPro Laravel 11 Admin & Dashboard Template</title>
     <!-- [Meta] -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta
   name="description"
-  content="Light Able admin and dashboard template offer a variety of UI elements and pages, ensuring your admin panel is both fast and effective."
+  content="DentalPro admin and dashboard template offer a variety of UI elements and pages, ensuring your admin panel is both fast and effective."
 />
-<meta name="author" content="phoenixcoded" />
+<meta name="author" content="CodeSommet" />
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ URL::asset('build/images/favicon.svg') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/img/favicons/favicon.svg') }}" type="image/x-icon">
 
     @yield('css')
 

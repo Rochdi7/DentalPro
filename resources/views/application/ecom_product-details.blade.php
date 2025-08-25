@@ -538,7 +538,7 @@
                                             <p class="mb-2 text-muted mt-1">Lorem Ipsum is simply dummy text of the
                                                 printing and typesetting industry. Lorem Ipsum has been the
                                                 industry's standard dummy text ever since the 1500.</p>
-                                            <a href="#" class="link-primary mb-1">https://phoenixcoded.net/</a>
+                                            <a href="#" class="link-primary mb-1">https://CodeSommet.net/</a>
                                         </div>
                                     </div>
                                 </div>

@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
   name="description"
-  content="Light Able admin and dashboard template offer a variety of UI elements and pages, ensuring your admin panel is both fast and effective."
+  content="DentalPro admin and dashboard template offer a variety of UI elements and pages, ensuring your admin panel is both fast and effective."
 />
-<meta name="author" content="phoenixcoded" />
+<meta name="author" content="CodeSommet" />
 
     <!-- Site Tiltle -->
-    <title>@yield('title', 'Light Able Laravel 11 Admin & Dashboard Template')</title>
+    <title>@yield('title', 'DentalPro Laravel 11 Admin & Dashboard Template')</title>
 
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="{{ URL::asset('build/images/favicon.ico') }}">

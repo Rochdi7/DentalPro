@@ -336,7 +336,7 @@
                         industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                         scrambled it to make a type specimen book.</p
                       >
-                      <a href="#" class="link-primary mb-1">https://phoenixcoded.net/</a>
+                      <a href="#" class="link-primary mb-1">https://CodeSommet.net/</a>
                     </div>
                   </div>
                   <div class="comment-content">
@@ -361,7 +361,7 @@
                         <div class="card-body">
                           <h6>Lorem Ipsum is simply dummy</h6>
                           <p class="mb-2">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                          <a href="#" class="link-primary mb-1">https://phoenixcoded.net/</a>
+                          <a href="#" class="link-primary mb-1">https://CodeSommet.net/</a>
                         </div>
                       </div>
                     </div>
@@ -389,7 +389,7 @@
                         industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                         scrambled it to make a type specimen book.</p
                       >
-                      <a href="#" class="link-primary mb-1">https://phoenixcoded.net/</a>
+                      <a href="#" class="link-primary mb-1">https://CodeSommet.net/</a>
                     </div>
                   </div>
                   <div class="comment-content">
@@ -536,7 +536,7 @@
                         industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                         scrambled it to make a type specimen book.</p
                       >
-                      <a href="#" class="link-primary mb-1">https://phoenixcoded.net/</a>
+                      <a href="#" class="link-primary mb-1">https://CodeSommet.net/</a>
                     </div>
                   </div>
                   <div class="comment-content">
@@ -1187,7 +1187,7 @@
                     <p class="mb-0 text-muted">Jobs</p>
                   </div>
                   <div class="col-md-6">
-                    <h6 class="mb-0">Phoenixcoded</h6>
+                    <h6 class="mb-0">CodeSommet</h6>
                   </div>
                 </div>
               </div>
@@ -1279,11 +1279,11 @@
           <div class="card-body">
             <div class="d-flex align-items-center mb-3">
               <div class="flex-shrink-0">
-                <img src="{{ URL::asset('build/images/favicon.svg') }}" alt="img" class="img-fluid" />
+                <img src="{{ asset('assets/img/favicons/favicon.svg') }}" alt="img" class="img-fluid" />
               </div>
               <div class="flex-grow-1 ms-2">
-                <h5 class="mb-0">Light able</h5>
-                <span class="text-sm text-muted">Light able@developers.io</span>
+                <h5 class="mb-0">DentalPro</h5>
+                <span class="text-sm text-muted">DentalPro@developers.io</span>
               </div>
             </div>
             <div class="d-flex align-items-center">
@@ -1325,13 +1325,13 @@
               <li>
                 <a
                   class="d-flex align-items-center text-muted text-hover-primary mb-2"
-                  href="https://phoenixcoded.net/"
+                  href="https://CodeSommet.net/"
                   target="_blank"
                 >
                   <div class="avtar avtar-xs bg-light-secondary flex-shrink-0 me-2">
                     <i class="material-icons-two-tone text-secondary f-16">language</i>
                   </div>
-                  <span class="text-truncate w-100">https://phoenixcoded.net/</span>
+                  <span class="text-truncate w-100">https://CodeSommet.net/</span>
                 </a>
               </li>
               <li>

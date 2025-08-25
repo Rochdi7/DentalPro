@@ -353,7 +353,7 @@
                                                 <a class="link-primary"
                                                     href="mailto:carson.darrin@company.io">carson.darrin@company.io</a>
                                             </div>
-                                            <span class="badge bg-primary">PRO</span>
+                                            <span class="badge bg-primary">DP</span>
                                         </div>
                                     </li>
                                     <li class="list-group-item">

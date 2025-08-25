@@ -18,7 +18,7 @@
                     <a class="nav-link" href="{{ url('elements/bc_alert') }}">Components</a>
                 </li>
                 <li class="nav-item px-1">
-                    <a class="nav-link" href="https://pcoded.gitbook.io/light-able/" target="_blank">Documentation</a>
+                    <a class="nav-link" href="https://www.facebook.com/CodeSommet/" target="_blank">Documentation</a>
                 </li>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0 align-items-start">
@@ -45,7 +45,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="https://1.envato.market/EKD9M4" target="_blank"
-                        class="btn btn-primary">Get Light able <i class="ph-duotone ph-arrow-square-out"></i></a>
+                        class="btn btn-primary">Get DentalPro <i class="ph-duotone ph-arrow-square-out"></i></a>
                 </li>
             </ul>
         </div>

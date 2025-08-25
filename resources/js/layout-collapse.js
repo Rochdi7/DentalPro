@@ -2,8 +2,8 @@
 =========================================================================
 =========================================================================
 Template Name: Light-able - Admin Template
-Author: Phoenixcoded
-Support: https://phoenixcoded.authordesk.app
+Author: CodeSommet
+Support: https://CodeSommet.authordesk.app
 File: layout-collapse.js
 Description:  this file will contains defining code for build collapse layouts
               and handle funcnality of a comapct layout in theme.

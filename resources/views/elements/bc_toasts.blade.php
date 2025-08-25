@@ -30,9 +30,9 @@
                     <div class="position-fixed top-0 end-0 p-3" style="z-index: 99999">
                         <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
-                                <img src="{{ URL::asset('build/images/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
+                                <img src="{{ asset('assets/img/favicons/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
                                     style="width: 17px" />
-                                <strong class="me-auto">Light Able</strong>
+                                <strong class="me-auto">DentalPro</strong>
                                 <small>11 mins ago</small>
                                 <button type="button" class="btn-close" data-bs-dismiss="toast"
                                     aria-label="Close"></button>
@@ -51,9 +51,9 @@
                     <div class="bg-dark p-4 mb-2">
                         <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
-                                <img src="{{ URL::asset('build/images/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
+                                <img src="{{ asset('assets/img/favicons/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
                                     style="width: 17px" />
-                                <strong class="me-auto">Light Able</strong>
+                                <strong class="me-auto">DentalPro</strong>
                                 <small>11 mins ago</small>
                                 <button type="button" class="btn-close" data-bs-dismiss="toast"
                                     aria-label="Close"></button>
@@ -138,9 +138,9 @@
                     <div class="bg-body p-4 mb-2">
                         <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
-                                <img src="{{ URL::asset('build/images/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
+                                <img src="{{ asset('assets/img/favicons/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
                                     style="width: 17px" />
-                                <strong class="me-auto">Light Able</strong>
+                                <strong class="me-auto">DentalPro</strong>
                                 <small>11 mins ago</small>
                                 <button type="button" class="btn-close" data-bs-dismiss="toast"
                                     aria-label="Close"></button>
@@ -158,9 +158,9 @@
                     <div class="bg-body toast-container p-4 mb-2">
                         <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
-                                <img src="{{ URL::asset('build/images/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
+                                <img src="{{ asset('assets/img/favicons/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
                                     style="width: 17px" />
-                                <strong class="me-auto">Light Able</strong>
+                                <strong class="me-auto">DentalPro</strong>
                                 <small>9 mins ago</small>
                                 <button type="button" class="btn-close" data-bs-dismiss="toast"
                                     aria-label="Close"></button>
@@ -169,9 +169,9 @@
                         </div>
                         <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
-                                <img src="{{ URL::asset('build/images/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
+                                <img src="{{ asset('assets/img/favicons/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
                                     style="width: 17px" />
-                                <strong class="me-auto">Light Able</strong>
+                                <strong class="me-auto">DentalPro</strong>
                                 <small>11 mins ago</small>
                                 <button type="button" class="btn-close" data-bs-dismiss="toast"
                                     aria-label="Close"></button>
@@ -236,9 +236,9 @@
                         <div class="toast-container position-absolute p-3" id="toastPlacement">
                             <div class="toast show fade">
                                 <div class="toast-header">
-                                    <img src="{{ URL::asset('build/images/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
+                                    <img src="{{ asset('assets/img/favicons/favicon.svg') }}" class="img-fluid m-r-5" alt="images"
                                         style="width: 17px" />
-                                    <strong class="me-auto">Light Able</strong>
+                                    <strong class="me-auto">DentalPro</strong>
                                     <small>11 mins ago</small>
                                 </div>
                                 <div class="toast-body"> Hello, world! This is a toast message. </div>

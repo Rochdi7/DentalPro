@@ -1064,7 +1064,7 @@
                                                                 class="d-flex align-items-center justify-content-start mb-2">
                                                                 <i class="ph-duotone ph-briefcase"></i>
                                                                 <p class="mb-0 text-muted ms-2"><a href="#"
-                                                                        class="link-primary">Light able.com</a></p>
+                                                                        class="link-primary">DentalPro.com</a></p>
                                                             </div>
                                                             <div class="d-flex align-items-center justify-content-start">
                                                                 <i class="ph-duotone ph-radio-button"></i>

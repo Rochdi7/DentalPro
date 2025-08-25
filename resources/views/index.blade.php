@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <title>Light Able Admin & Dashboard Template | Phoenixcoded</title>
+    <title>DentalPro Admin & Dashboard Template | CodeSommet</title>
     <!-- [Meta] -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description"
-        content="Light Able admin and dashboard template offer a variety of UI elements and pages, ensuring your admin panel is both fast and effective.">
-    <meta name="author" content="phoenixcoded">
+        content="DentalPro admin and dashboard template offer a variety of UI elements and pages, ensuring your admin panel is both fast and effective.">
+    <meta name="author" content="CodeSommet">
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ URL::asset('build/images/favicon.svg') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('assets/img/favicons/favicon.svg') }}" type="image/x-icon" />
     <!-- [Page specific CSS] start -->
     <link href="{{ URL::asset('build/css/plugins/animate.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('build/css/plugins/swiper-bundle.css') }}" rel="stylesheet">
@@ -91,7 +91,7 @@
                                         <div class="col-xl-7 col-lg-8 col-md-9 col-sm-10 col-11">
                                             <h1 class="my-3 wow animate__fadeInUp text-white" data-wow-delay="0.4s">
                                                 Elevate Your Project with
-                                                Light Able Admin Dashboard</h1>
+                                                DentalPro Admin Dashboard</h1>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center text-center">
@@ -140,7 +140,7 @@
                     <h2 class="wow animate__fadeInUp section-title" data-wow-delay="0.2s">Layouts Demos</h2>
                     <p class="mt-lg-4 mt-2 mb-4 mb-md-5 wow animate__fadeInUp" data-wow-delay="0.4s">Unveil the
                         diversity of page
-                        layouts within Light Able, including Vertical, Horizontal, and Tab Layouts, each offering unique
+                        layouts within DentalPro, including Vertical, Horizontal, and Tab Layouts, each offering unique
                         design
                         options to suit your preferences and project requirements.</p>
                 </div>
@@ -804,7 +804,7 @@
                     <h2 class="wow animate__fadeInUp section-title" data-wow-delay="0.2s">Apps</h2>
                     <p class="mt-lg-4 mt-2 mb-4 mb-md-5 wow animate__fadeInUp" data-wow-delay="0.4s">Unveil the
                         diversity of page
-                        layouts within Light Able, including Vertical, Horizontal, and Tab Layouts, each offering unique
+                        layouts within DentalPro, including Vertical, Horizontal, and Tab Layouts, each offering unique
                         design
                         options to suit your preferences and project requirements.</p>
                 </div>
@@ -913,7 +913,7 @@
                     <h2 class="wow animate__fadeInUp section-title" data-wow-delay="0.2s">Important Pages</h2>
                     <p class="mt-lg-4 mt-2 mb-4 mb-md-5 wow animate__fadeInUp" data-wow-delay="0.4s">Unveil the
                         diversity of page
-                        layouts within Light Able, including Vertical, Horizontal, and Tab Layouts, each offering unique
+                        layouts within DentalPro, including Vertical, Horizontal, and Tab Layouts, each offering unique
                         design
                         options to suit your preferences and project requirements.</p>
                 </div>
@@ -1062,7 +1062,7 @@
                     <h2 class="wow animate__fadeInUp section-title" data-wow-delay="0.2s">Page Versions</h2>
                     <p class="mt-lg-4 mt-2 mb-4 mb-md-5 wow animate__fadeInUp" data-wow-delay="0.4s">Unveil the
                         diversity of page
-                        layouts within Light Able, including Vertical, Horizontal, and Tab Layouts, each offering unique
+                        layouts within DentalPro, including Vertical, Horizontal, and Tab Layouts, each offering unique
                         design
                         options to suit your preferences and project requirements.</p>
                 </div>
@@ -1110,7 +1110,7 @@
                     <p class="text-opacity-75 mt-lg-4 mt-2 mb-4 mb-md-5 wow animate__fadeInUp" data-wow-delay="0.4s">
                         Designed to streamline your development process and enhance user experiences. Following are the
                         top features
-                        that bundle with Light Able Dashboard Template.</p>
+                        that bundle with DentalPro Dashboard Template.</p>
                 </div>
             </div>
             <div class="row justify-content-center product-cards-block">
@@ -1364,9 +1364,9 @@
             <div class="row justify-content-center text-center wow animate__fadeInUp" data-wow-delay="0.2s"
                 style="visibility: visible; animation-delay: 0.2s; animation-name: animate__fadeInUp">
                 <div class="col-md-8 col-xl-6">
-                    <h2 class="mb-0 wow animate__fadeInUp section-title" data-wow-delay="0.1s">Why Light Able?</h2>
+                    <h2 class="mb-0 wow animate__fadeInUp section-title" data-wow-delay="0.1s">Why DentalPro?</h2>
                     <p class="mt-lg-4 mt-2 mb-4 mb-md-5 wow animate__fadeInUp" data-wow-delay="0.2s">
-                        Opt for Light Able for web development and unleash endless possibilities. Its sleek design,
+                        Opt for DentalPro for web development and unleash endless possibilities. Its sleek design,
                         robust features,
                         and unmatched flexibility enable effortless creation of stunning web applications. </p>
                 </div>
@@ -1383,7 +1383,7 @@
                                 </div>
                                 <div class="flex-grow-1 ms-3">
                                     <h5>Dashboard of 2024</h5>
-                                    <p class="mb-0">Embracing the latest trends in design, Light Able emerges as a
+                                    <p class="mb-0">Embracing the latest trends in design, DentalPro emerges as a
                                         standout Bootstrap
                                         admin template for 2024.</p>
                                 </div>
@@ -1402,7 +1402,7 @@
                                     <h5>Made for Performance</h5>
                                     <p class="mb-0">Speed, ease of customization, and flexibility are three crucial
                                         factors for any admin
-                                        template. We're delighted to announce that Light Able excels in these
+                                        template. We're delighted to announce that DentalPro excels in these
                                         performance metrics. </p>
                                 </div>
                             </div>
@@ -1436,8 +1436,8 @@
                                 <div class="flex-grow-1 ms-3">
                                     <h5>On Time Support</h5>
                                     <p class="mb-0">Problem? Write to us - using our <a
-                                            href="https://phoenixcoded.authordesk.app/" target="_blank"
-                                            title="Phoenixcoded Support Desk">support desk</a>. 99% query resolution
+                                            href="https://CodeSommet.authordesk.app/" target="_blank"
+                                            title="CodeSommet Support Desk">support desk</a>. 99% query resolution
                                         in first
                                         response within 1 day of time. 70% first response within 30mins. </p>
                                 </div>
@@ -1475,7 +1475,7 @@
                                     <h5>Effective Documentation</h5>
                                     <p class="mb-0">Enjoy stress-free development with separate, regularly updated
                                         help documentation of
-                                        Light Able.</p>
+                                        DentalPro.</p>
                                 </div>
                             </div>
                         </div>
@@ -1498,7 +1498,7 @@
                                 <div class="col-lg-6 my-3">
                                     <span class="h1 text-white mb-3 d-block">Trusted by Envato Elite Author</span>
 
-                                    <a href="https://themeforest.net/user/phoenixcoded" class="btn btn-primary"
+                                    <a href="https://themeforest.net/user/CodeSommet" class="btn btn-primary"
                                         target="_blank">Envato <i class="ph-duotone ph-arrow-square-out"></i></a>
                                 </div>
                                 <div class="col-lg-6 my-3">
@@ -1622,7 +1622,7 @@
                     <div class="col-md-4 wow animate__fadeInUp" data-wow-delay="0.2s">
                         <img src="{{ URL::asset('build/images/logo-dark.svg') }}" alt="image"
                             class="img-fluid mb-3">
-                        <p class="mb-0">Since 2014, over 6.3K developers have placed their trust in Phoenixcoded's
+                        <p class="mb-0">Since 2014, over 6.3K developers have placed their trust in CodeSommet's
                             Templates. Light
                             Able is managed by their experienced team of professionals.</p>
                     </div>
@@ -1632,19 +1632,19 @@
                                 <h5 class="mb-sm-4 mb-2">Company</h5>
                                 <ul class="list-unstyled footer-link mb-0">
                                     <li>
-                                        <a href="https://themeforest.net/user/phoenixcoded"
+                                        <a href="https://themeforest.net/user/CodeSommet"
                                             target="_blank">Profile</a>
                                     </li>
                                     <li>
-                                        <a href="https://themeforest.net/user/phoenixcoded/portfolio"
+                                        <a href="https://themeforest.net/user/CodeSommet/portfolio"
                                             target="_blank">Portfolio</a>
                                     </li>
                                     <li>
-                                        <a href="https://themeforest.net/user/phoenixcoded/followers"
+                                        <a href="https://themeforest.net/user/CodeSommet/followers"
                                             target="_blank">Follow Us</a>
                                     </li>
                                     <li>
-                                        <a href="https://phoenixcoded.net" target="_blank">Website</a>
+                                        <a href="https://CodeSommet.net" target="_blank">Website</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1656,10 +1656,10 @@
                                             target="_blank">Documentation</a>
                                     </li>
                                     <li>
-                                        <a href="https://phoenixcoded.authordesk.app/" target="_blank">Support</a>
+                                        <a href="https://CodeSommet.authordesk.app/" target="_blank">Support</a>
                                     </li>
                                     <li>
-                                        <a href="https://themeforest.net/user/phoenixcoded#contact"
+                                        <a href="https://themeforest.net/user/CodeSommet#contact"
                                             target="_blank">Reach Us</a>
                                     </li>
                                 </ul>
@@ -1683,25 +1683,26 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col my-1 wow animate__fadeInUp" data-wow-delay="0.4s">
-                        <p class="m-0">Made with &#9829; by Team <a
-                                href="https://themeforest.net/user/phoenixcoded" target="_blank"> Phoenixcoded</a>
-                        </p>
-                    </div>
-                    <div class="col-auto my-1">
-                        <ul class="list-inline footer-sos-link mb-0">
-                            <li class="list-inline-item wow animate__fadeInUp" data-wow-delay="0.4s">
-                                <a href="https://fb.com/phoenixcoded">
-                                    <i class="ph-duotone ph-facebook-logo f-20"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col my-1 wow animate__fadeInUp" data-wow-delay="0.4s">
+                <p class="m-0">Fait avec &#9829; par l'équipe <a
+                        href="https://themeforest.net/user/CodeSommet" target="_blank"> CodeSommet</a>
+                </p>
+            </div>
+            <div class="col-auto my-1">
+                <ul class="list-inline footer-sos-link mb-0">
+                    <li class="list-inline-item wow animate__fadeInUp" data-wow-delay="0.4s">
+                        <a href="https://fb.com/CodeSommet">
+                            <i class="ph-duotone ph-facebook-logo f-20"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
+</div>
+
     </footer>
     <!-- [ footer apps ] End -->
     <!-- [ Main Content ] end -->

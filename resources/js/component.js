@@ -2,8 +2,8 @@
 =========================================================================
 =========================================================================
 Template Name: Light-able - Admin Template
-Author: Phoenixcoded
-Support: https://phoenixcoded.authordesk.app
+Author: CodeSommet
+Support: https://CodeSommet.authordesk.app
 File: component.js
 Description:  this file will contains defining the code for to genarte
               a code for for user visiblity purpose and allow user to 

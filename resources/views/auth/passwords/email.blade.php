@@ -1,17 +1,20 @@
 @extends('layouts.AuthLayout')
 
-@section('title', 'Forgot password')
+@section('title', 'Mot de passe oublié')
+
+@section('auth-v2', 'yes')
 
 @section('content')
     <div class="auth-form">
-        <div class="card my-5">
+        <div class="card my-5 mx-3">
             <div class="card-body">
-                <div class="text-center">
-                    <img src="{{ URL::asset('build/images/authentication/img-auth-fporgot-password.png') }}" alt="images"
-                        class="img-fluid mb-3">
-                    <h4 class="f-w-500 mb-1">Forgot Password</h4>
-                    <p class="mb-3">Back to <a href="{{ route('login') }}" class="link-primary ms-1">Log in</a></p>
-                </div>
+                <h4 class="f-w-500 mb-1">Mot de passe oublié</h4>
+                <p class="mb-3">
+                    Retour à
+                    <a href="{{ route('login') }}" class="link-primary">Connexion</a>
+                </p>
+
+                {{-- Message de succès après l'envoi de l'e-mail --}}
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
@@ -20,19 +23,29 @@
 
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf
-                    <div class="form-group mb-3">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                            value="{{ old('email') }}" required autocomplete="email" autofocus id="floatingInput"
-                            placeholder="Email Address">
+
+                    <div class="mb-3">
+                        <label class="form-label">Adresse e-mail</label>
+                        <input
+                            type="email"
+                            class="form-control @error('email') is-invalid @enderror"
+                            id="floatingInput"
+                            name="email"
+                            value="{{ old('email') }}"
+                            required
+                            autocomplete="email"
+                            autofocus
+                            placeholder="Adresse e-mail"
+                        />
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
+
                     <div class="d-grid mt-3">
-                        <button type="submit" class="btn btn-primary">Send reset email</button>
+                        <button type="submit" class="btn btn-primary">Envoyer l'e-mail de réinitialisation</button>
                     </div>
                 </form>
             </div>

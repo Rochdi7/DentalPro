@@ -1,11 +1,9 @@
-<!-- [ Sidebar Menu ] start -->
 <nav class="pc-sidebar">
     <div class="navbar-wrapper">
         <div class="m-header">
             <a href="/dashboard/dashboard" class="b-brand text-primary">
-                <!-- ========   Change your logo from here   ============ -->
                 <img src="{{ URL::asset('build/images/logo-dark.svg') }}" alt="logo image" class="logo-lg">
-                <span class="badge bg-brand-color-2 rounded-pill ms-1 theme-version">v1.2.0</span>
+                <span class="badge bg-brand-color-2 rounded-pill ms-1 theme-version">v1.0.0</span>
             </a>
         </div>
         <div class="navbar-content">
@@ -14,19 +12,30 @@
             </ul>
             <div class="card nav-action-card bg-brand-color-4">
                 <div class="card-body" style="background-image: url('/build/images/layout/nav-card-bg.svg')">
-                    <h5 class="text-dark">Help Center</h5>
-                    <p class="text-dark text-opacity-75">Please contact us for more questions.</p>
-                    <a href="https://phoenixcoded.support-hub.io/" class="btn btn-primary" target="_blank">Go to help
-                        Center</a>
+                    <h5 class="text-dark">DentalPro</h5>
+                    <p class="text-dark text-opacity-75">Vos problèmes, notre passion</p>
                 </div>
             </div>
         </div>
+        @php
+            $user = auth()->user();
+            $avatar =
+                $user && !empty($user->avatar_url ?? null)
+                    ? $user->avatar_url
+                    : asset('build/images/user/avatar-1.jpg');
+        @endphp
+
         <div class="card pc-user-card">
             <div class="card-body">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
-                        <img src="{{ URL::asset('build/images/user/avatar-1.jpg') }}" alt="user-image"
-                            class="user-avtar wid-45 rounded-circle">
+                        @php
+                            $avatar = $user->getFirstMediaUrl('avatars', 'thumb') ?: asset('images/default-avatar.png');
+                        @endphp
+
+                        <img src="{{ asset('build/images/user/avatar-1.jpg') }}" alt="user-image"
+                            class="user-avtar wid-45 rounded-circle"
+                            onerror="this.onerror=null;this.src='{{ asset('assets/img/default-avatar.png') }}';">
                     </div>
                     <div class="flex-grow-1 ms-3">
                         <div class="dropdown">
@@ -34,8 +43,8 @@
                                 aria-expanded="false" data-bs-offset="0,20">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1 me-2">
-                                        <h6 class="mb-0">Jonh Smith</h6>
-                                        <small>Administrator</small>
+                                        <h6 class="mb-0">{{ $user?->name ?? 'Admin' }}</h6>
+                                        <small>Administrateur</small>
                                     </div>
                                     <div class="flex-shrink-0">
                                         <div class="btn btn-icon btn-link-secondary avtar">
@@ -44,34 +53,33 @@
                                     </div>
                                 </div>
                             </a>
+
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a class="pc-user-links">
+                                    <li>
+                                        <a class="pc-user-links" href="{{ route('profile.edit') }}">
                                             <i class="ph-duotone ph-user"></i>
-                                            <span>My Account</span>
-                                        </a></li>
-                                    <li><a class="pc-user-links">
-                                            <i class="ph-duotone ph-gear"></i>
-                                            <span>Settings</span>
-                                        </a></li>
-                                    <li><a class="pc-user-links">
-                                            <i class="ph-duotone ph-lock-key"></i>
-                                            <span>Lock Screen</span>
-                                        </a></li>
-                                    <li><a class="pc-user-links" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                              document.getElementById('logout-form').submit();">
+                                            <span>Mon compte</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="pc-user-links" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="ph-duotone ph-power"></i>
-                                            <span>Logout</span>
+                                            <span style="font-size: 13.5px">Se déconnecter</span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </nav>
-<!-- [ Sidebar Menu ] end -->

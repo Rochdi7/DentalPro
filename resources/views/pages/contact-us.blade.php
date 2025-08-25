@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-body">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.9624616075307!2d72.86314569999999!3d21.2333371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f3b471f4ce1%3A0x22ace90053cf335!2sphoenixcoded!5e0!3m2!1sen!2sin!4v1689227733984!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.9624616075307!2d72.86314569999999!3d21.2333371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f3b471f4ce1%3A0x22ace90053cf335!2sCodeSommet!5e0!3m2!1sen!2sin!4v1689227733984!5m2!1sen!2sin"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                         class="contact-map"></iframe>
                     <div class="row justify-content-center">

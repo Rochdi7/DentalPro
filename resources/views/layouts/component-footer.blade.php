@@ -27,8 +27,8 @@
                 <div class="col-md-4">
                     <img src="{{ URL::asset('build/images/logo-dark.svg') }}" alt="image"
                         class="footer-logo img-fluid mb-3" />
-                    <p class="mb-4">Since 2014, over 6.3K developers have placed their trust in Phoenixcoded's
-                        Templates. Light Able is managed by their
+                    <p class="mb-4">Since 2014, over 6.3K developers have placed their trust in CodeSommet's
+                        Templates. DentalPro is managed by their
                         experienced team of professionals.</p>
                 </div>
                 <div class="col-md-8">
@@ -66,21 +66,22 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col my-1">
-                    <p class="m-0">Made with &#9829; by Team <a href="https://themeforest.net/user/phoenixcoded" target="_blank"> Phoenixcoded</a></p>
-                </div>
-                <div class="col-auto my-1">
-                    <ul class="list-inline footer-sos-link mb-0">
-                        <li class="list-inline-item">
-                            <a href="https://fb.com/phoenixcoded"><i class="ph-duotone ph-facebook-logo f-20"></i></a>
-                        </li>
-                    </ul>
-                </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col my-1">
+                <p class="m-0">Fait avec &#9829; par l'équipe <a href="https://themeforest.net/user/CodeSommet" target="_blank"> CodeSommet</a></p>
+            </div>
+            <div class="col-auto my-1">
+                <ul class="list-inline footer-sos-link mb-0">
+                    <li class="list-inline-item">
+                        <a href="https://fb.com/CodeSommet"><i class="ph-duotone ph-facebook-logo f-20"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
+
 </footer>
 <!-- [ footer apps ] End -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>

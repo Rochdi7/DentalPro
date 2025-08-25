@@ -2,18 +2,23 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Support\Str;
+
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, InteractsWithMedia;
 
     /**
-     * The attributes that are mass assignable.
+     * Mass assignable attributes.
      *
      * @var array<int, string>
      */
@@ -21,10 +26,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'bio',
+        'phone',
+        'address',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Hidden attributes.
      *
      * @var array<int, string>
      */
@@ -34,7 +42,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * Casts.
      *
      * @var array<string, string>
      */
@@ -42,4 +50,39 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Register the media collections used by this model.
+     */
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('avatars')
+            ->singleFile(); // keep only the latest avatar
+    }
+
+    /**
+     * Define media conversions (e.g., a small thumb for avatars).
+     */
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(150)
+            ->height(150)
+            ->sharpen(10)
+            ->nonQueued();
+    }
+
+    /**
+     * Convenience accessor: $user->avatar_url
+     */
+    public function getAvatarUrlAttribute(): string
+    {
+        return $this->getFirstMediaUrl('avatars', 'thumb')
+            ?: asset('build/images/user/avatar-1.jpg');
+    }
+
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
 }

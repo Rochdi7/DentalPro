@@ -5,7 +5,7 @@
         <a href="/dashboard/dashboard" class="b-brand text-primary">
           <!-- ========   Change your logo from here   ============ -->
           <img src="{{ URL::asset('build/images/logo-dark.svg') }}" alt="logo image" class="logo-lg" />
-          <span class="badge bg-brand-color-2 rounded-pill ms-1 theme-version">v1.2.0</span>
+          <span class="badge bg-brand-color-2 rounded-pill ms-1 theme-version">v1.0.0</span>
           <div class="dropdown ms-auto">
             <a
               class="avtar avtar-s btn-link-secondary dropdown-toggle arrow-none me-0"
@@ -69,7 +69,7 @@
           <div class="card-body" style="background-image: url('/build/images/layout/nav-card-bg.svg')">
             <h5 class="text-dark">Help Center</h5>
             <p class="text-dark text-opacity-75">Please contact us for more questions.</p>
-            <a href="https://phoenixcoded.support-hub.io/" class="btn btn-primary" target="_blank">Go to help Center</a>
+            <a href="https://www.facebook.com/CodeSommet/" class="btn btn-primary" target="_blank">Go to help Center</a>
           </div>
         </div>
       </div>

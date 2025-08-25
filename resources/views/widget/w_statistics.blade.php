@@ -524,11 +524,11 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-3">
                         <div class="flex-shrink-0">
-                            <img src="{{ URL::asset('build/images/favicon.svg') }}" alt="img" class="img-fluid" />
+                            <img src="{{ asset('assets/img/favicons/favicon.svg') }}" alt="img" class="img-fluid" />
                         </div>
                         <div class="flex-grow-1 ms-2">
-                            <h5 class="mb-0">Light able</h5>
-                            <span class="text-sm text-muted">Light able@developers.io</span>
+                            <h5 class="mb-0">DentalPro</h5>
+                            <span class="text-sm text-muted">DentalPro@developers.io</span>
                         </div>
                     </div>
                     <div class="d-flex align-items-center">

@@ -21,12 +21,20 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            // ✅ Custom fields
+            $table->string('role')->default('admin');
+            $table->text('bio')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
         });
 
+        // ✅ Insert default admin user
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@phoenixcoded.com',
-            'password' => Hash::make(12345678),
+            'email' => 'admin@CodeSommet.com',
+            'password' => Hash::make('12345678'),
+            'role' => 'admin',
         ]);
     }
 

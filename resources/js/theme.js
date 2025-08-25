@@ -2,8 +2,8 @@
 =========================================================================
 =========================================================================
 Template Name: Light-able - Admin Template
-Author: Phoenixcoded
-Support: https://phoenixcoded.authordesk.app
+Author: CodeSommet
+Support: https://CodeSommet.authordesk.app
 File: themes.js
 Description:  this file will contains overall theme setup and handle
               behavior of live custumizer like Dark/Light, LTR/RTL,
@@ -95,7 +95,7 @@ function layout_sidebar_change(value) {
       control.classList.remove('active'); // Remove active class from current button
     }
     if (document.querySelector('.pc-sidebar .m-header .logo-lg')) {
-      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '../build/images/logo-white.svg');
+      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '/assets/img/logo/logo.webp');
     }
 
     // Add the active class to the button representing the dark theme
@@ -113,7 +113,7 @@ function layout_sidebar_change(value) {
       control.classList.remove('active'); // Remove active class from current button
     }
     if (document.querySelector('.pc-sidebar .m-header .logo-lg')) {
-      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '../build/images/logo-dark.svg');
+      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '/assets/img/logo/logo.webp');
     }
 
     // Add the active class to the button representing the light theme
@@ -196,20 +196,20 @@ function layout_change(layout) {
   if (layout == 'dark') {
     dark_flag = true;
     if (document.querySelector('.pc-sidebar .m-header .logo-lg')) {
-      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '../build/images/logo-white.svg');
+      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '/assets/img/logo/logo.webp');
     }
 
     if (document.querySelector('.navbar-brand .logo-lg')) {
-      document.querySelector('.navbar-brand .logo-lg').setAttribute('src', '../build/images/logo-white.svg');
+      document.querySelector('.navbar-brand .logo-lg').setAttribute('src', '/assets/img/logo/logo.webp');
     }
     if (document.querySelector('.landing-logo')) {
-      document.querySelector('.landing-logo').setAttribute('src', '../build/images/logo-white.svg');
+      document.querySelector('.landing-logo').setAttribute('src', '/assets/img/logo/logo.webp');
     }
     if (document.querySelector('.auth-main.v1 .auth-sidefooter')) {
-      document.querySelector('.auth-main.v1 .auth-sidefooter img').setAttribute('src', '../build/images/logo-white.svg');
+      document.querySelector('.auth-main.v1 .auth-sidefooter img').setAttribute('src', '/assets/img/logo/logo.webp');
     }
     if (document.querySelector('.footer-top .footer-logo')) {
-      document.querySelector('.footer-top .footer-logo').setAttribute('src', '../build/images/logo-white.svg');
+      document.querySelector('.footer-top .footer-logo').setAttribute('src', '/assets/img/logo/logo.webp');
     }
     var control = document.querySelector('.theme-layout .btn.active');
     if (control) {
@@ -219,20 +219,20 @@ function layout_change(layout) {
   } else {
     dark_flag = false;
     if (document.querySelector('.pc-sidebar .m-header .logo-lg')) {
-      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '../build/images/logo-dark.svg');
+      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '/assets/img/logo/logo.webp');
     }
     if (document.querySelector('.navbar-brand .logo-lg')) {
-      document.querySelector('.navbar-brand .logo-lg').setAttribute('src', '../build/images/logo-dark.svg');
+      document.querySelector('.navbar-brand .logo-lg').setAttribute('src', '/assets/img/logo/logo.webp');
     }
 
     if (document.querySelector('.landing-logo')) {
-      document.querySelector('.landing-logo').setAttribute('src', '../build/images/logo-dark.svg');
+      document.querySelector('.landing-logo').setAttribute('src', '/assets/img/logo/logo.webp');
     }
     if (document.querySelector('.auth-main.v1 .auth-sidefooter')) {
-      document.querySelector('.auth-main.v1 .auth-sidefooter img').setAttribute('src', '../build/images/logo-dark.svg');
+      document.querySelector('.auth-main.v1 .auth-sidefooter img').setAttribute('src', '/assets/img/logo/logo.webp');
     }
     if (document.querySelector('.footer-top .footer-logo')) {
-      document.querySelector('.footer-top .footer-logo').setAttribute('src', '../build/images/logo-dark.svg');
+      document.querySelector('.footer-top .footer-logo').setAttribute('src', '/assets/img/logo/logo.webp');
     }
     var control = document.querySelector('.theme-layout .btn.active');
     if (control) {
