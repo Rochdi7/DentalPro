@@ -11,13 +11,16 @@ class ProductTag extends Model
 
     protected static function booted()
     {
-        static::saving(function ($m) {
-            if (empty($m->slug)) $m->slug = Str::slug($m->name);
+        static::saving(function ($tag) {
+            if (empty($tag->slug)) {
+                $tag->slug = Str::slug($tag->name);
+            }
         });
     }
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'product_tag')->withTimestamps();
+        return $this->belongsToMany(Product::class, 'product_tag', 'product_tag_id', 'product_id')
+                    ->withTimestamps();
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AttributeOption extends Model
 {
-    protected $fillable = ['attribute_id','value','sort_order'];
+    protected $fillable = ['attribute_id', 'value', 'sort_order'];
 
     public function attribute()
     {

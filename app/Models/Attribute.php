@@ -6,17 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attribute extends Model
 {
-    protected $fillable = [
-        'name','code','type','unit','is_filterable','is_visible'
-    ];
-
-    protected $casts = [
-        'is_filterable' => 'boolean',
-        'is_visible'    => 'boolean',
-    ];
+    protected $fillable = ['name', 'code', 'type', 'unit', 'is_filterable', 'is_visible'];
 
     public function options()
     {
-        return $this->hasMany(AttributeOption::class)->orderBy('sort_order');
+        return $this->hasMany(AttributeOption::class);
     }
 }

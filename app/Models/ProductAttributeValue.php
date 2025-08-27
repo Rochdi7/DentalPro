@@ -7,16 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 class ProductAttributeValue extends Model
 {
     protected $fillable = [
-        'product_id','attribute_id',
-        'value_text','value_number','value_boolean','attribute_option_id'
+        'product_id',
+        'attribute_id',
+        'value_text',
+        'value_number',
+        'value_boolean',
+        'attribute_option_id'
     ];
 
-    protected $casts = [
-        'value_number' => 'decimal:3',
-        'value_boolean'=> 'boolean',
-    ];
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 
-    public function product()   { return $this->belongsTo(Product::class); }
-    public function attribute() { return $this->belongsTo(Attribute::class); }
-    public function option()    { return $this->belongsTo(AttributeOption::class, 'attribute_option_id'); }
+    public function attribute()
+    {
+        return $this->belongsTo(Attribute::class);
+    }
+
+    public function option()
+    {
+        return $this->belongsTo(AttributeOption::class, 'attribute_option_id');
+    }
 }

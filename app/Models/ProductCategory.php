@@ -22,6 +22,12 @@ class ProductCategory extends Model
         });
     }
 
+    public function scopeActive($query)
+{
+    return $query->where('is_active', true);
+}
+
+
     public function parent()   { return $this->belongsTo(ProductCategory::class, 'parent_id'); }
     public function children() { return $this->hasMany(ProductCategory::class, 'parent_id')->orderBy('position'); }
     public function products() { return $this->hasMany(Product::class, 'product_category_id'); }
