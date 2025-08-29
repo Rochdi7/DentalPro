@@ -3,63 +3,76 @@
 namespace App\Http\Controllers\Backoffice;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BlogTagRequest;
+use App\Models\BlogTag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BlogTagController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $tags = BlogTag::query()
+            ->when($request->q, fn($query, $q) =>
+                $query->where('name', 'like', "%{$q}%")
+                      ->orWhere('slug', 'like', "%{$q}%")
+            )
+            ->latest()
+            ->paginate(15);
+
+        return view('backoffice.blog_tags.index', compact('tags'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('backoffice.blog_tags.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(BlogTagRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        // Générer un slug automatiquement s'il est vide
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['name']);
+        }
+
+        BlogTag::create($data);
+
+        return redirect()
+            ->route('backoffice.blog_tags.index')
+            ->with('success', 'Tag ajouté avec succès.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(BlogTag $blog_tag)
     {
-        //
+        return view('backoffice.blog_tags.edit', [
+            'tag' => $blog_tag
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(BlogTagRequest $request, BlogTag $blog_tag)
     {
-        //
+        $data = $request->validated();
+
+        // Générer un slug automatiquement s'il est vide
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['name']);
+        }
+
+        $blog_tag->update($data);
+
+        return redirect()
+            ->route('backoffice.blog_tags.index')
+            ->with('success', 'Tag mis à jour avec succès.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(BlogTag $blog_tag)
     {
-        //
-    }
+        $blog_tag->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()
+            ->route('backoffice.blog_tags.index')
+            ->with('success', 'Tag supprimé avec succès.');
     }
 }

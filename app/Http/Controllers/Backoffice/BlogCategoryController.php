@@ -2,64 +2,83 @@
 
 namespace App\Http\Controllers\Backoffice;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\BlogCategoryRequest;
+use App\Models\BlogCategory;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class BlogCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $categories = BlogCategory::query()
+            ->when(
+                $request->q,
+                fn($q, $search) =>
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('slug', 'like', "%{$search}%")
+            )
+            ->orderBy('position')
+            ->paginate(15);
+
+        return view('backoffice.blog_categories.index', compact('categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('backoffice.blog_categories.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(BlogCategoryRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        // Auto-generate slug if not provided
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['name']);
+        }
+
+        BlogCategory::create($data);
+
+        return redirect()
+            ->route('backoffice.blog_categories.index')
+            ->with('success', 'Catégorie ajoutée avec succès.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(BlogCategory $blog_category)
     {
-        //
+        $categories = BlogCategory::where('id', '!=', $blog_category->id)
+            ->orderBy('position')
+            ->get();
+
+        return view('backoffice.blog_categories.edit', [
+            'category'   => $blog_category,
+            'categories' => $categories,
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(BlogCategoryRequest $request, BlogCategory $blog_category)
     {
-        //
+        $data = $request->validated();
+
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['name']);
+        }
+
+        $blog_category->update($data);
+
+        return redirect()
+            ->route('backoffice.blog_categories.index')
+            ->with('success', 'Catégorie mise à jour avec succès.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(BlogCategory $blog_category)
     {
-        //
-    }
+        $blog_category->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()
+            ->route('backoffice.blog_categories.index')
+            ->with('success', 'Catégorie supprimée avec succès.');
     }
 }

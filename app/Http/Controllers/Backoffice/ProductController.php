@@ -79,7 +79,7 @@ class ProductController extends Controller
             $this->syncCharacteristics($product, $request->input('characteristics', []));
             DB::commit();
 
-            return redirect()->route('products.index')->with('success', 'Produit créé avec succès.');
+            return redirect()->route('backoffice.products.index')->with('success', 'Produit créé avec succès.');
         } catch (\Throwable $e) {
             DB::rollBack();
 
@@ -150,7 +150,7 @@ class ProductController extends Controller
             $this->syncCharacteristics($product, $request->input('characteristics', []));
 
             DB::commit();
-            return redirect()->route('products.index')->with('success', 'Produit mis à jour avec succès.');
+            return redirect()->route('backoffice.products.index')->with('success', 'Produit mis à jour avec succès.');
         } catch (\Throwable $e) {
             DB::rollBack();
             return back()->withInput()->withErrors('Erreur lors de la mise à jour: ' . $e->getMessage());
@@ -160,7 +160,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Produit supprimé.');
+        return redirect()->route('backoffice.products.index')->with('success', 'Produit supprimé.');
     }
 
     protected function syncCharacteristics(Product $product, array $characteristics): void

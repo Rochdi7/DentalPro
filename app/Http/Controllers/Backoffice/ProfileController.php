@@ -21,7 +21,7 @@ class ProfileController extends Controller
     public function edit()
     {
         $user = Auth::user();
-        return view('profile.index', compact('user'));
+        return view('backoffice.profile.index', compact('user'));
     }
 
     /**
@@ -60,7 +60,7 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return redirect()->route('profile.edit')->with('success', 'Profile updated successfully.');
+        return redirect()->route('backoffice.profile.edit')->with('success', 'Profile updated successfully.');
     }
 
     /**
