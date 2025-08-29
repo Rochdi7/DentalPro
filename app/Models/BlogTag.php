@@ -2,22 +2,40 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class BlogTag extends Model
 {
-    protected $fillable = ['name','slug'];
+    use HasFactory;
 
-    protected static function booted()
+    protected $fillable = ['name', 'slug'];
+
+    public function getRouteKeyName(): string
     {
-        static::saving(function ($m) {
-            if (empty($m->slug)) $m->slug = Str::slug($m->name);
-        });
+        return 'slug';
     }
 
     public function posts()
     {
-        return $this->belongsToMany(BlogPost::class, 'blog_post_tag')->withTimestamps();
+        return $this->belongsToMany(BlogPost::class, 'blog_post_tag', 'tag_id', 'post_id')
+            ->withTimestamps();
+    }
+
+    /** Mutators */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value;
+        if (empty($this->attributes['slug'])) {
+            $base = Str::slug(Str::limit($value, 80, ''));
+            $slug = $base;
+            $i = 1;
+            while (static::where('slug', $slug)->exists()) {
+                $slug = "{$base}-{$i}";
+                $i++;
+            }
+            $this->attributes['slug'] = $slug;
+        }
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Image\Manipulations as ImageManipulations;
 
 class Product extends Model implements HasMedia
 {
@@ -106,4 +107,6 @@ class Product extends Model implements HasMedia
 
         return round((($this->old_price - $this->price) / $this->old_price) * 100);
     }
+
+
 }
