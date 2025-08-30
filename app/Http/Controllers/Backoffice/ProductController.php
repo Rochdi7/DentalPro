@@ -10,7 +10,8 @@ use App\Models\ProductTag;
 use App\Models\ProductCharacteristic;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Log; // 👈 add this at the top
+use Illuminate\Support\Facades\Log;
+
 class ProductController extends Controller
 {
     public function index()
@@ -28,15 +29,13 @@ class ProductController extends Controller
         return view('backoffice.products.create', compact('parents', 'children', 'tags'));
     }
 
-
-
     public function store(ProductRequest $request)
     {
         DB::beginTransaction();
 
         try {
             $data = $request->validated();
-            Log::debug('Store Product - Validated Data:', $data); // ✅ Debug input
+            Log::debug('Store Product - Validated Data:', $data);
 
             $baseData = collect($data)->only([
                 'title',
@@ -52,7 +51,8 @@ class ProductController extends Controller
                 'published_at',
             ])->toArray();
 
-            Log::debug('Store Product - Base Data:', $baseData); // ✅ Debug DB insert data
+            $baseData['is_hot'] = $request->has('is_hot');
+            $baseData['is_occasion'] = $request->has('is_occasion');
 
             if (empty($baseData['slug']) && !empty($baseData['title'])) {
                 $baseData['slug'] = Str::slug($baseData['title']);
@@ -61,10 +61,7 @@ class ProductController extends Controller
             $product = Product::create($baseData);
             Log::debug('Store Product - Created Product ID:', [$product->id]);
 
-            $tags = $request->input('tags', []);
-            Log::debug('Store Product - Tags:', $tags);
-
-            $product->tags()->sync($tags); // 👈 likely where the error hits
+            $product->tags()->sync($request->input('tags', []));
 
             if ($request->hasFile('main_image')) {
                 $product->addMediaFromRequest('main_image')->toMediaCollection('main_image');
@@ -83,18 +80,16 @@ class ProductController extends Controller
         } catch (\Throwable $e) {
             DB::rollBack();
 
-            // ✅ Full SQL and trace logging
             Log::error('Product Store Error:', [
                 'message' => $e->getMessage(),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
-                'trace' => $e->getTraceAsString(),
+                'file'    => $e->getFile(),
+                'line'    => $e->getLine(),
+                'trace'   => $e->getTraceAsString(),
             ]);
 
             return back()->withInput()->withErrors('Erreur lors de la création du produit: ' . $e->getMessage());
         }
     }
-
 
     public function edit(Product $product)
     {
@@ -127,6 +122,9 @@ class ProductController extends Controller
                 'meta_description',
                 'published_at',
             ])->toArray();
+
+            $baseData['is_hot'] = $request->has('is_hot');
+            $baseData['is_occasion'] = $request->has('is_occasion');
 
             if (empty($baseData['slug']) && !empty($baseData['title'])) {
                 $baseData['slug'] = Str::slug($baseData['title']);
@@ -167,13 +165,11 @@ class ProductController extends Controller
     {
         $toDelete = request()->input('_deleted_characteristic_ids', []);
 
-        // If no characteristics at all, wipe them
         if (empty($characteristics)) {
             $product->characteristics()->delete();
             return;
         }
 
-        // Delete requested ones
         if (!empty($toDelete)) {
             ProductCharacteristic::where('product_id', $product->id)
                 ->whereIn('id', $toDelete)
@@ -186,7 +182,6 @@ class ProductController extends Controller
             $name  = trim($char['attribute_name'] ?? '');
             $value = trim($char['value'] ?? '');
 
-            // ✅ Skip invalid entries
             if ($name === '' || $value === '') {
                 continue;
             }
@@ -197,7 +192,6 @@ class ProductController extends Controller
                 'position'       => isset($char['position']) && is_numeric($char['position']) ? (int)$char['position'] : 0,
             ];
 
-            // Update if ID exists
             if (!empty($char['id'])) {
                 $item = ProductCharacteristic::where('product_id', $product->id)
                     ->where('id', $char['id'])
@@ -208,13 +202,11 @@ class ProductController extends Controller
                     $seenIds[] = $item->id;
                 }
             } else {
-                // Otherwise create new
                 $item = $product->characteristics()->create($data);
                 $seenIds[] = $item->id;
             }
         }
 
-        // Cleanup: remove old ones not seen in this sync
         ProductCharacteristic::where('product_id', $product->id)
             ->whereNotIn('id', $seenIds)
             ->delete();
