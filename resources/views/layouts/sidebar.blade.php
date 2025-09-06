@@ -18,11 +18,10 @@
             </div>
         </div>
         @php
-            $user = auth()->user();
-            $avatar =
-                $user && !empty($user->avatar_url ?? null)
-                    ? $user->avatar_url
-                    : asset('build/images/user/avatar-1.jpg');
+            use Illuminate\Support\Facades\Auth;
+
+            $user = Auth::user();
+            $avatar = $user?->getFirstMediaUrl('avatars', 'thumb') ?: asset('build/images/user/avatar-1.jpg');
         @endphp
 
         <div class="card pc-user-card">
@@ -30,12 +29,14 @@
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
                         @php
-                            $avatar = $user->getFirstMediaUrl('avatars', 'thumb') ?: asset('images/default-avatar.png');
+                            $avatar =
+                                $user?->getFirstMediaUrl('avatars', 'thumb') ?: asset('build/images/user/avatar-1.jpg');
                         @endphp
 
-                        <img src="{{ asset('build/images/user/avatar-1.jpg') }}" alt="user-image"
+                        <img src="{{ $avatar }}" alt="{{ $user?->name ?? 'user-avatar' }}"
                             class="user-avtar wid-45 rounded-circle"
                             onerror="this.onerror=null;this.src='{{ asset('assets/img/default-avatar.png') }}';">
+
                     </div>
                     <div class="flex-grow-1 ms-3">
                         <div class="dropdown">
@@ -57,7 +58,7 @@
                             <div class="dropdown-menu">
                                 <ul>
                                     <li>
-                                        <a class="pc-user-links" href="{{ route('profile.edit') }}">
+                                        <a class="pc-user-links" href="{{ route('backoffice.profile.edit') }}">
                                             <i class="ph-duotone ph-user"></i>
                                             <span>Mon compte</span>
                                         </a>

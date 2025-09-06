@@ -12,20 +12,7 @@
                         <i class="ti ti-menu-2"></i>
                     </a>
                 </li>
-                <li class="dropdown pc-h-item d-inline-flex d-md-none">
-                    <a class="pc-head-link dropdown-toggle arrow-none m-0" data-bs-toggle="dropdown" href="#">
-                        <i class="ph-duotone ph-magnifying-glass"></i>
-                    </a>
-                    <div class="dropdown-menu pc-h-dropdown drp-search">
-                        <form class="px-3">
-                            <div class="mb-0 d-flex align-items-center">
-                                <input type="search" class="form-control border-0 shadow-none"
-                                    placeholder="Rechercher..." />
-                                <button class="btn btn-light-secondary btn-search">Rechercher</button>
-                            </div>
-                        </form>
-                    </div>
-                </li>
+                
             </ul>
         </div>
         <div class="ms-auto">
@@ -87,7 +74,7 @@
                                         </div>
                                     </li>
                                     <li class="list-group-item">
-                                        <a href="{{ route('profile.edit') }}" class="dropdown-item">
+                                        <a href="{{ route('backoffice.profile.edit') }}" class="dropdown-item">
                                             <span class="d-flex align-items-center">
                                                 <i class="ph-duotone ph-user-circle"></i>
                                                 <span>Modifier le profil</span>
