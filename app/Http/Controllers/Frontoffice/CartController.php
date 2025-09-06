@@ -46,121 +46,170 @@ class CartController extends Controller
 
 
     public function addToCart(Request $request)
-    {
-        $productId = $request->product_id;
+{
+    $validated = $request->validate([
+        'product_id' => ['required','integer','exists:products,id'],
+        'quantity'   => ['nullable','integer','min:1'],
+    ]);
 
-        $cart = session()->get('cart', []);
+    $productId = (int) $validated['product_id'];
+    $qty       = (int) ($validated['quantity'] ?? 1);
 
-        if (isset($cart[$productId])) {
-            $cart[$productId]['quantity']++;
-        } else {
-            $cart[$productId] = [
-                'product_id' => $productId,
-                'quantity' => 1
-            ];
-        }
+    // Pull session cart (assoc: [productId => ['product_id'=>..,'quantity'=>..]])
+    $cart = session()->get('cart', []);
 
-        session()->put('cart', $cart);
-
-        $items = [];
-        $total = 0;
-
-        foreach ($cart as $item) {
-            $product = Product::find($item['product_id']);
-            if ($product) {
-                $items[] = [
-                    'id' => $product->id,
-                    'name' => $product->name,
-                    'price' => $product->price,
-                    'quantity' => $item['quantity'],
-                    'image' => $product->getFirstMediaUrl('images') ?: asset('img/default-product.jpg'),
-                    'url' => route('product.show', $product->slug),
-                ];
-                $total += $product->price * $item['quantity'];
-            }
-        }
-
-        return response()->json([
-            'message' => 'Produit ajouté au panier',
-            'count' => collect($cart)->sum('quantity'),
-            'items' => $items,
-            'total' => number_format($total, 2) . ' DH'
-        ]);
+    // Merge quantities (add on top of existing)
+    if (isset($cart[$productId])) {
+        $cart[$productId]['quantity'] += $qty;
+    } else {
+        $cart[$productId] = [
+            'product_id' => $productId,
+            'quantity'   => $qty,
+        ];
     }
+
+    // Persist
+    session()->put('cart', $cart);
+
+    // Build JSON payload efficiently (one query)
+    $ids = array_keys($cart);
+    $products = Product::with('media')->whereIn('id', $ids)->get()->keyBy('id');
+
+    $items = [];
+    $total = 0;
+    $count = 0;
+
+    foreach ($cart as $rowProductId => $row) {
+        $product = $products->get($rowProductId);
+        if (!$product) continue;
+
+        $rowQty = (int) $row['quantity'];
+        $price  = (float) $product->price;
+        $subtotal = $price * $rowQty;
+
+        $items[] = [
+            'id'       => $product->id,
+            'name'     => $product->name,
+            'price'    => $price,
+            'quantity' => $rowQty,
+            'image'    => $product->getFirstMediaUrl('main_image') ?: asset('img/default-product.jpg'),
+            'url'      => route('product.show', $product->slug),
+        ];
+
+        $total += $subtotal;
+        $count += $rowQty;
+    }
+
+    return response()->json([
+        'message' => 'Produit ajouté au panier',
+        'count'   => $count,
+        'items'   => $items,
+        'total'   => number_format($total, 2, '.', ' ') . ' MAD',
+    ]);
+}
+
 
     public function removeFromCart(Request $request)
-    {
-        $productId = $request->product_id;
+{
+    $request->validate([
+        'product_id' => ['required','integer'],
+    ]);
 
-        $cart = session()->get('cart', []);
-        unset($cart[$productId]);
-        session()->put('cart', $cart);
+    $productId = (int) $request->product_id;
 
-        $items = [];
-        $total = 0;
+    $cart = session()->get('cart', []);
+    unset($cart[$productId]);
+    session()->put('cart', $cart);
 
-        foreach ($cart as $item) {
-            $product = Product::find($item['product_id']);
-            if ($product) {
-                $items[] = [
-                    'id' => $product->id,
-                    'name' => $product->name,
-                    'price' => (float) $product->price,
-                    'quantity' => $item['quantity'],
-                    'image' => $product->getFirstMediaUrl('images') ?: asset('img/default-product.jpg'),
-                    'url' => route('product.show', $product->slug)
-                ];
-                $total += $product->price * $item['quantity'];
-            }
-        }
-
+    // Rebuild summary efficiently
+    if (empty($cart)) {
         return response()->json([
             'message' => 'Produit supprimé',
-            'count' => collect($cart)->sum('quantity'),
-            'items' => $items,
-            'total' => number_format($total, 2) . ' DH'
+            'count'   => 0,
+            'items'   => [],
+            'total'   => number_format(0, 2, '.', ' ') . ' MAD',
         ]);
     }
+
+    $ids = array_keys($cart);
+    $products = Product::with('media')->whereIn('id', $ids)->get()->keyBy('id');
+
+    $items = [];
+    $total = 0;
+    $count = 0;
+
+    foreach ($cart as $rowProductId => $row) {
+        $product = $products->get($rowProductId);
+        if (!$product) continue;
+
+        $rowQty = (int) $row['quantity'];
+        $price  = (float) $product->price;
+        $subtotal = $price * $rowQty;
+
+        $items[] = [
+            'id'       => $product->id,
+            'name'     => $product->name,
+            'price'    => $price,
+            'quantity' => $rowQty,
+            'image'    => $product->getFirstMediaUrl('main_image') ?: asset('img/default-product.jpg'),
+            'url'      => route('product.show', $product->slug),
+        ];
+
+        $total += $subtotal;
+        $count += $rowQty;
+    }
+
+    return response()->json([
+        'message' => 'Produit supprimé',
+        'count'   => $count,
+        'items'   => $items,
+        'total'   => number_format($total, 2, '.', ' ') . ' MAD',
+    ]);
+}
+
 
     public function getMiniCartHtml()
-    {
-        $cart = session()->get('cart', []);
+{
+    $cart = session()->get('cart', []);
 
-        if (empty($cart)) {
-            return response()->json([
-                'html'  => '<li class="ps-cart__item text-center"><span>Votre panier est vide.</span></li>',
-                'total' => number_format(0, 2) . ' DH',
-                'count' => 0,
-            ]);
-        }
-
-        $ids = array_column($cart, 'product_id');
-        $products = Product::whereIn('id', $ids)->get()->keyBy('id');
-
-        $itemsHtml = '';
-        $total = 0;
-        $count = 0;
-
-        foreach ($cart as $row) {
-            $product = $products->get($row['product_id']);
-            if (!$product) continue;
-
-            $qty = (int) ($row['quantity'] ?? 1);
-            $total += $product->price * $qty;
-            $count += $qty;
-
-            $itemsHtml .= view('frontoffice.partials.mini_cart_item', [
-                'product' => $product,
-                'item'    => ['quantity' => $qty],
-            ])->render();
-        }
-
+    if (empty($cart)) {
         return response()->json([
-            'html'  => $itemsHtml,
-            'total' => number_format($total, 2) . ' DH',
-            'count' => $count,
+            'html'  => '<li class="ps-cart__item text-center"><span>Votre panier est vide.</span></li>',
+            'total' => number_format(0, 2, '.', ' ') . ' MAD',
+            'count' => 0,
         ]);
     }
+
+    $ids = array_keys($cart);
+    $products = Product::with('media')->whereIn('id', $ids)->get()->keyBy('id');
+
+    $itemsHtml = '';
+    $total = 0;
+    $count = 0;
+
+    foreach ($cart as $productId => $row) {
+        $product = $products->get($productId);
+        if (!$product) continue;
+
+        $qty = (int) ($row['quantity'] ?? 1);
+        $price = (float) $product->price;
+
+        $total += $price * $qty;
+        $count += $qty;
+
+        $itemsHtml .= view('frontoffice.partials.mini_cart_item', [
+            'product' => $product,
+            'item'    => ['quantity' => $qty],
+        ])->render();
+    }
+
+    return response()->json([
+        'html'  => $itemsHtml,
+        'total' => number_format($total, 2, '.', ' ') . ' MAD',
+        'count' => $count,
+    ]);
+}
+
 
     public function clear(Request $request)
     {
