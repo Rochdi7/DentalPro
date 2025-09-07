@@ -1,0 +1,79 @@
+:root {
+  --space-unit: 1em;
+  --space-xxxxs: calc(0.09 * var(--space-unit));
+  --space-xxxs: calc(0.146 * var(--space-unit));
+  --space-xxs: calc(0.236 * var(--space-unit));
+  --space-xs: calc(0.382 * var(--space-unit));
+  --space-sm: calc(0.618 * var(--space-unit));
+  --space-md: calc(1 * var(--space-unit));
+  --space-lg: calc(1.618 * var(--space-unit));
+  --space-xl: calc(2.618 * var(--space-unit));
+  --space-xxl: calc(4.236 * var(--space-unit));
+  --space-xxxl: calc(6.854 * var(--space-unit));
+  --space-xxxxl: calc(11.08 * var(--space-unit));
+  --component-padding: var(--space-xxxl);
+}
+
+.ps-home--11 .ps-banner--full {
+  background-color: #f0f0f0;
+  background-position: 0% center;
+}
+
+.ps-home--11 .ps-banner--full .ps-banner {
+  min-height: 400px;
+}
+
+.ps-home--11 .ps-section--black-style {
+  padding: 80px 0;
+}
+
+.ps-home--11 .ps-section--black-style .ps-section__body {
+  border: 3px solid #FD8D27;
+  border-radius: 4px;
+  padding: 50px 0 10px;
+}
+
+.ps-home--11 .ps-section--black-style .ps-product--standard .ps-product__price, .ps-home--11 .ps-section--black-style .ps-product--standard .ps-product__title {
+  color: #103178;
+}
+
+.ps-home--11 .ps-section--black-style .ps-product--standard .ps-product__del {
+  color: #9babcd;
+}
+
+.ps-home--11 .ps-section--instagram {
+  padding: 0 0 50px;
+}
+
+.ps-home--11 .ps-section--newsletter {
+  padding: 30px 0 80px;
+}
+
+.ps-home--11 .ps-promo--section {
+  padding-top: 80px;
+}
+
+@media (min-width: 768px) {
+  .ps-home--11 .ps-banner--full {
+    background-position: 10% center;
+    height: calc(100vh - 36px);
+  }
+  .ps-home--11 .ps-banner--full .ps-banner .ps-banner__title {
+    font-size: 60px;
+    line-height: 70px;
+  }
+  .ps-home--11 .ps-banner--full .ps-banner .ps-banner__content {
+    flex: 0 0 60%;
+    width: 60%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .ps-home--11 .ps-banner--full {
+    background-position: center;
+  }
+  .ps-home--11 .ps-banner--full .ps-banner .ps-banner__title {
+    font-size: 70px;
+    line-height: 84px;
+  }
+}

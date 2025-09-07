@@ -1,0 +1,24 @@
+.ps-home--9 .ps-banner--full {
+  background-position: 65% center;
+}
+
+.ps-home--9 .ps-banner--full .ps-banner .ps-banner__title, .ps-home--9 .ps-banner--full .ps-banner .ps-banner__desc, .ps-home--9 .ps-banner--full .ps-banner .ps-banner__btn {
+  color: white;
+}
+
+.ps-home--9 .ps-reviews--3 {
+  padding: 80px 0;
+}
+
+.ps-home--9 .ps-section--newsletter-full {
+  margin-bottom: 80px;
+  padding: 140px 0;
+}
+
+.ps-home--9 .ps-promo--mask {
+  padding-bottom: 80px;
+}
+
+.ps-home--9 .ps-section--black-style {
+  padding: 80px 0;
+}

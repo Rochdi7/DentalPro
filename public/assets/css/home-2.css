@@ -1,0 +1,41 @@
+.ps-home--2 .ps-home__content {
+  padding-top: 0;
+}
+
+.ps-home--2 .ps-promo {
+  padding: 30px 0 50px;
+}
+
+.ps-home--2 .ps-section--latest {
+  margin-bottom: 50px;
+}
+
+.ps-home--2 .ps-section--deals {
+  padding: 30px 0 50px;
+}
+
+.ps-home--2 .ps-section--featured {
+  padding: 30px 0 50px;
+}
+
+.ps-home--2 .ps-section--newsletter {
+  padding: 30px 0 80px;
+}
+
+.ps-home--2 .ps-section--categories {
+  padding: 30px 0 50px;
+}
+
+.ps-home--2 .ps-banner--round {
+  margin: 30px 0 50px;
+}
+
+.ps-home--2 .ps-section--blog {
+  padding-bottom: 50px;
+}
+
+@media (min-width: 1280px) {
+  .ps-home--2 .ps-section--banner {
+    min-height: 400px;
+  }
+}

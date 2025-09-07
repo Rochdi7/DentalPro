@@ -1,0 +1,351 @@
+:root {
+  --space-unit: 1em;
+  --space-xxxxs: calc(0.09 * var(--space-unit));
+  --space-xxxs: calc(0.146 * var(--space-unit));
+  --space-xxs: calc(0.236 * var(--space-unit));
+  --space-xs: calc(0.382 * var(--space-unit));
+  --space-sm: calc(0.618 * var(--space-unit));
+  --space-md: calc(1 * var(--space-unit));
+  --space-lg: calc(1.618 * var(--space-unit));
+  --space-xl: calc(2.618 * var(--space-unit));
+  --space-xxl: calc(4.236 * var(--space-unit));
+  --space-xxxl: calc(6.854 * var(--space-unit));
+  --space-xxxxl: calc(11.08 * var(--space-unit));
+  --component-padding: var(--space-xxxl);
+}
+
+.ps-home--14 .ps-section--banner {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-bottom: 30px;
+}
+
+.ps-home--14 .ps-section--banner .ps-promo .ps-promo__item {
+  background-color: #00A198;
+}
+
+.ps-home--14 .ps-section--banner .ps-promo .ps-promo__badge {
+  color: #333;
+}
+
+.ps-home--14 .ps-section--banner .ps-promo .ps-promo__sale {
+  background-color: #FD8D27;
+  color: white;
+  transform: translate(20%, -65%);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ps-home--14 .ps-section--banner .ps-promo .ps-promo__content {
+  transform: translate(0, 0);
+  top: 0;
+  padding: 40px;
+}
+
+.ps-home--14 .ps-section--banner .ps-banner {
+  height: auto;
+  min-height: 300px;
+}
+
+.ps-home--14 .ps-section--banner .ps-banner .ps-banner__imagebg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.ps-home--14 .ps-section--banner .ps-banner .ps-banner__content {
+  padding: 80px 40px;
+  height: auto;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.ps-home--14 .ps-section--banner .ps-banner .ps-banner__price del {
+  color: white;
+}
+
+.ps-home--14 .ps-promo--home {
+  padding-bottom: 50px;
+}
+
+.ps-home--14 .ps-promo--home .ps-promo__btn {
+  display: none;
+}
+
+.ps-home--14 .ps-promo--home .ps-promo__meta {
+  margin-bottom: 0;
+}
+
+.ps-home--14 .ps-promo--home .ps-promo__title {
+  color: #333;
+}
+
+.ps-home--14 .ps-section--latest-horizontal {
+  padding: 30px 0 80px;
+}
+
+.ps-home--14 .ps-section--latest-horizontal .ps-section__title {
+  color: #333;
+}
+
+.ps-home--14 .ps-product--standard .ps-product__title, .ps-home--14 .ps-product--standard .ps-product__del {
+  color: #333;
+}
+
+.ps-home--14 .ps-product--standard .ps-product__footer {
+  color: #333;
+}
+
+.ps-home--14 .ps-product--standard .ps-product__footer span {
+  color: #333;
+}
+
+.ps-home--14 .ps-product--standard .ps-product__percent {
+  background-color: #333;
+}
+
+.ps-home--14 .ps-product--standard .ps-product__price {
+  color: #333;
+}
+
+.ps-home--14 .ps-product--standard .ps-product__price.sale {
+  color: #FD8D27;
+}
+
+.ps-home--14 .ps-section--deals .ps-section__title {
+  color: #333;
+}
+
+.ps-home--14 .ps-section--latest {
+  margin: 30px 0 50px;
+}
+
+.ps-home--14 .ps-section--latest .ps-section__title {
+  color: #333;
+}
+
+.ps-home--14 .owl-dots .owl-dot.active {
+  background-color: #333;
+}
+
+.ps-home--14 .owl-nav button:hover {
+  background-color: #333 !important;
+}
+
+.ps-home--14 .ps-home__block {
+  padding: 30px 0 80px;
+}
+
+.ps-home--14 .ps-home__block .ps-section--newsletter {
+  background-color: #E5F5F4;
+  background-image: none;
+  padding: 30px 15px;
+  border-radius: 4px;
+}
+
+.ps-home--14 .ps-home__block .ps-section--newsletter .ps-section__title {
+  color: #333;
+  text-align: left;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 15px;
+}
+
+.ps-home--14 .ps-home__block .ps-section--newsletter .ps-section__text {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.ps-home--14 .ps-home__block .ps-section--newsletter .ps-form__control {
+  max-width: 100%;
+}
+
+.ps-home--14 .ps-home__block .ps-blog--latset {
+  margin-bottom: 30px;
+}
+
+.ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__badge {
+  display: none;
+}
+
+.ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__content {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: white;
+  width: 88%;
+  padding: 20px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__date, .ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__author {
+  color: #333;
+}
+
+.ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__meta {
+  margin-bottom: 0;
+}
+
+.ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.ps-home--14 .ps-section--deals {
+  padding: 30px 0 50px;
+}
+
+.ps-home--14 .ps-product--type {
+  padding: 30px 0 50px;
+}
+
+@media (min-width: 768px) {
+  .ps-home--14 .ps-section--banner {
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 23px;
+  }
+  .ps-home--14 .ps-section--banner .ps-banner {
+    min-height: 280px !important;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .ps-home--14 .ps-section--banner .ps-banner .ps-banner__content {
+    padding: 20px;
+    width: 80%;
+    flex: 0 0 80%;
+    padding: 30px 40px;
+  }
+  .ps-home--14 .ps-section--banner .ps-promo {
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .ps-home--14 .ps-section--banner .ps-promo .ps-promo__content {
+    padding: 20px;
+  }
+  .ps-home--14 .ps-section--banner .ps-promo .ps-promo__sale {
+    left: 70%;
+  }
+  .ps-home--14 .ps-promo--horizontal {
+    padding-top: 30px;
+  }
+  .ps-home--14 .ps-promo--horizontal .ps-promo__meta {
+    display: flex;
+  }
+  .ps-home--14 .ps-promo--horizontal .ps-promo__del {
+    margin-bottom: 0;
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .ps-home--14 .ps-promo--horizontal .ps-promo__price {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .ps-home--14 .ps-promo--horizontal .ps-promo__content {
+    padding: 20px;
+  }
+  .ps-home--14 .ps-home__block .ps-blog--latset {
+    height: 100%;
+    margin-bottom: 0;
+  }
+  .ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__thumbnail {
+    height: 100%;
+  }
+  .ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__thumbnail a, .ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__thumbnail img {
+    height: 100%;
+  }
+  .ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__content {
+    width: 70%;
+  }
+}
+
+@media (min-width: 992px) {
+  .ps-home--14 .ps-section--banner {
+    padding-bottom: 30px;
+  }
+  .ps-home--14 .ps-section--banner .ps-promo .ps-promo__sale {
+    font-size: 25px;
+  }
+  .ps-home--14 .ps-section--banner .ps-banner .ps-banner__content {
+    padding: 60px 40px;
+  }
+  .ps-home--14 .col-lg-2dot4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+  .ps-home--14 .ps-home__block .ps-section--newsletter {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__content {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .ps-home--14 .ps-home__block .ps-section--newsletter {
+    padding: 60px 40px;
+  }
+  .ps-home--14 .ps-home__block .ps-section--newsletter .ps-section__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .ps-home--14 .ps-home__block .ps-section--newsletter .ps-section__text {
+    font-size: 16px;
+  }
+  .ps-home--14 .ps-home__block .ps-blog--latset .ps-blog__content {
+    padding: 40px;
+  }
+  .ps-home--14 .ps-section--banner .ps-promo .ps-promo__name {
+    font-size: 30px;
+  }
+  .ps-home--14 .ps-section--banner .ps-promo .ps-promo__content {
+    padding: 40px;
+  }
+  .ps-home--14 .ps-section--banner .ps-promo .ps-promo__sale {
+    left: 100%;
+    top: 60%;
+  }
+  .ps-home--14 .ps-section--banner .ps-banner .ps-banner__title {
+    font-size: 50px;
+    line-height: 60px;
+  }
+  .ps-home--14 .ps-section--banner .ps-banner .ps-banner__content {
+    padding: 80px 60px;
+  }
+  .ps-home--14 .ps-section--banner .ps-banner .ps-banner__desc {
+    font-size: 22px;
+  }
+  .ps-home--14 .ps-promo--horizontal .ps-promo__name {
+    font-size: 20px;
+  }
+  .ps-home--14 .ps-promo--horizontal .ps-promo__price {
+    font-size: 18px;
+  }
+  .ps-home--14 .ps-promo--horizontal .ps-promo__del {
+    font-size: 16px;
+  }
+  .ps-home--14 .ps-promo--horizontal .ps-promo__content {
+    padding: 40px;
+  }
+}

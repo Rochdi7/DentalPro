@@ -1,0 +1,104 @@
+:root {
+  --space-unit: 1em;
+  --space-xxxxs: calc(0.09 * var(--space-unit));
+  --space-xxxs: calc(0.146 * var(--space-unit));
+  --space-xxs: calc(0.236 * var(--space-unit));
+  --space-xs: calc(0.382 * var(--space-unit));
+  --space-sm: calc(0.618 * var(--space-unit));
+  --space-md: calc(1 * var(--space-unit));
+  --space-lg: calc(1.618 * var(--space-unit));
+  --space-xl: calc(2.618 * var(--space-unit));
+  --space-xxl: calc(4.236 * var(--space-unit));
+  --space-xxxl: calc(6.854 * var(--space-unit));
+  --space-xxxxl: calc(11.08 * var(--space-unit));
+  --component-padding: var(--space-xxxl);
+}
+
+.ps-home--4 {
+  border-top: 1px solid #d9dee8;
+}
+
+.ps-home--4 .ps-section--category-horizontal {
+  display: none;
+}
+
+.ps-home--4 .ps-section--category-horizontal::after {
+  display: none;
+}
+
+.ps-home--4 .ps-home__content {
+  padding-top: 20px;
+}
+
+.ps-home--4 .ps-promo {
+  padding: 15px 0 50px;
+}
+
+.ps-home--4 .ps-home__banner {
+  margin: 30px 0 50px;
+}
+
+.ps-home--4 .ps-section--latest {
+  margin: 30px 0 50px;
+}
+
+.ps-home--4 .ps-section--featured {
+  padding: 30px 0 50px;
+}
+
+.ps-home--4 .ps-section--featured .ps-shop__more {
+  display: block;
+}
+
+.ps-home--4 .ps-section--newsletter {
+  padding: 0 0 80px;
+}
+
+.ps-home--4 .ps-banner__padding .ps-home__banner .ps-banner__title {
+  margin-bottom: 10px;
+}
+
+.ps-home--4 .ps-banner__padding .ps-home__banner .ps-banner__shop {
+  margin-top: 10px;
+}
+
+.ps-home--4 .ps-section--sellers {
+  padding: 30px 0 50px;
+}
+
+.ps-home--4 .ps-section--deals {
+  padding: 30px 0 50px;
+}
+
+@media (min-width: 768px) {
+  .ps-home--4 .ps-section--category-horizontal {
+    display: block;
+  }
+  .ps-home--4 .ps-home__banner .ps-banner .ps-banner__persen.ps-right {
+    margin-right: 28%;
+  }
+  .ps-home--4 .ps-home__banner .ps-banner .ps-banner__persen.ps-left {
+    position: absolute;
+    left: -20%;
+    right: auto;
+    top: 50%;
+    margin-top: -60px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .ps-home--4 .ps-section--banner .ps-banner {
+    height: 650px;
+  }
+  .ps-home--4 .ps-section--banner .ps-banner .ps-banner__content {
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .ps-home--4 .ps-section--banner .ps-banner .ps-banner__shop {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}

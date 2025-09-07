@@ -1,0 +1,124 @@
+:root {
+  --space-unit: 1em;
+  --space-xxxxs: calc(0.09 * var(--space-unit));
+  --space-xxxs: calc(0.146 * var(--space-unit));
+  --space-xxs: calc(0.236 * var(--space-unit));
+  --space-xs: calc(0.382 * var(--space-unit));
+  --space-sm: calc(0.618 * var(--space-unit));
+  --space-md: calc(1 * var(--space-unit));
+  --space-lg: calc(1.618 * var(--space-unit));
+  --space-xl: calc(2.618 * var(--space-unit));
+  --space-xxl: calc(4.236 * var(--space-unit));
+  --space-xxxl: calc(6.854 * var(--space-unit));
+  --space-xxxxl: calc(11.08 * var(--space-unit));
+  --component-padding: var(--space-xxxl);
+}
+
+.ps-home--12 .ps-about--info {
+  padding: 30px 0 50px;
+}
+
+.ps-home--12 .ps-about--info .ps-about__title {
+  font-size: 20px;
+  color: #333;
+}
+
+.ps-home--12 .ps-about--info .ps-block__title, .ps-home--12 .ps-about--info .ps-block__subtitle {
+  color: #333;
+}
+
+.ps-home--12 .ps-banner--round {
+  margin: 0;
+}
+
+.ps-home--12 .ps-banner--round .ps-banner {
+  padding-top: 66px;
+  height: auto;
+}
+
+.ps-home--12 .ps-banner--round .ps-banner .ps-banner__content {
+  padding: 40px 0 0;
+  height: auto;
+  text-align: center;
+}
+
+.ps-home--12 .ps-banner--round .ps-banner .ps-banner__title, .ps-home--12 .ps-banner--round .ps-banner .ps-banner__desc, .ps-home--12 .ps-banner--round .ps-banner .ps-banner__btn {
+  color: #333;
+}
+
+.ps-home--12 .ps-section--newsletter-info {
+  padding: 80px 0;
+}
+
+.ps-home--12 .ps-project--info {
+  padding: 30px 0 80px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.ps-home--12 .ps-section--mask-info {
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  .ps-home--12 .ps-about--info {
+    padding: 30px 0 80px;
+  }
+  .ps-home--12 .ps-about--info .ps-about__title {
+    font-size: 25px;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner {
+    padding-top: 100px;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__content {
+    text-align: left;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__thumnail {
+    justify-content: flex-start;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__thumnail .ps-banner__round {
+    left: -50%;
+    height: 200%;
+    bottom: -250px;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__thumnail .ps-banner__image {
+    height: 491px;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__block {
+    align-items: flex-end;
+    height: initial;
+  }
+  .ps-home--12 .ps-section--newsletter-info {
+    padding: 140px 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .ps-home--12 .ps-about--info .ps-about__title {
+    font-size: 30px;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__content {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__title {
+    font-size: 70px;
+    line-height: 84px;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__btn {
+    font-size: 18px;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__thumnail .ps-banner__round {
+    left: -60%;
+    height: 240%;
+    bottom: -70%;
+  }
+  .ps-home--12 .ps-banner--round .ps-banner .ps-banner__thumnail .ps-banner__image {
+    height: 667px;
+  }
+  .ps-home--12 .ps-section--newsletter-info {
+    padding: 160px 0;
+  }
+}
