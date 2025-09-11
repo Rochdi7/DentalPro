@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\CartItem;
 use App\Models\Wishlist;
-
+use App\Models\BlogPost;
 class HomeController extends Controller
 {
     public function index(Request $request)
@@ -32,8 +32,8 @@ class HomeController extends Controller
         // Top 5 produits par catégorie
         $categories = ProductCategory::with(['products' => function ($query) {
             $query->with(['media', 'characteristics'])
-                  ->inRandomOrder()
-                  ->take(5);
+                ->inRandomOrder()
+                ->take(5);
         }])->get();
 
         // Produits en vedette
@@ -58,6 +58,12 @@ class HomeController extends Controller
             ->where('session_id', $sessionId)
             ->get();
 
+        $latestPosts = BlogPost::with('tags')
+            ->where('is_published', true)
+            ->orderByDesc('published_at')
+            ->take(6)
+            ->get();
+
         return view('index', compact(
             'products',
             'bestDeals',
@@ -65,11 +71,8 @@ class HomeController extends Controller
             'featuredProducts',
             'collectionProducts',
             'cartItems',
-            'wishlistItems'
+            'wishlistItems',
+            'latestPosts'
         ));
     }
-
-    
-
-    
 }
