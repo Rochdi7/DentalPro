@@ -107,4 +107,50 @@ class ProductController extends Controller
         // Return to the product detail page
         return view('frontoffice.products.show', compact('product', 'relatedProducts'));
     }
+
+    public function quickview($id)
+    {
+        $product = Product::with(['media', 'characteristics', 'tags'])->findOrFail($id);
+
+        return response()->json([
+            'id' => $product->id,
+            'title' => $product->title,
+            'price' => number_format($product->price, 2),
+            'old_price' => $product->old_price ? number_format($product->old_price, 2) : null,
+            'sku' => $product->sku,
+            'tags' => $product->tags->pluck('name'),
+            'characteristics' => $product->characteristics->map(fn($c) => [
+                'name' => $c->attribute_name,
+                'value' => $c->value
+            ]),
+            'main_image' => $product->getFirstMediaUrl('main_image') ?: asset('img/default-product.jpg'),
+            // ✅ Prendre max 5 images de la galerie
+            'gallery' => $product->getMedia('gallery')->take(5)->map(fn($m) => $m->getUrl()),
+            'is_hot' => $product->is_hot,
+            'is_occasion' => $product->is_occasion,
+        ]);
+    }
+
+    public function ajaxSearch(Request $request)
+    {
+        $q = $request->get('q');
+
+        $products = Product::where('title', 'LIKE', "%{$q}%")
+            ->orWhere('description', 'LIKE', "%{$q}%")
+            ->take(5)
+            ->get()
+            ->map(function ($product) {
+                return [
+                    'id' => $product->id,
+                    'slug' => $product->slug,
+                    'title' => $product->title,
+                    'price' => $product->price,
+                    // ✅ Utilise Spatie Media Library + fallback
+                    'main_image_url' => $product->getFirstMediaUrl('main_image')
+                        ?: asset('assets/img/products/default.jpg'),
+                ];
+            });
+
+        return response()->json($products);
+    }
 }
