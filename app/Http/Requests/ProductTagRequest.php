@@ -11,9 +11,11 @@ class ProductTagRequest extends FormRequest
         return true;
     }
 
+    /**
+     * ✅ Ces règles ne sont utilisées que pour update(), car la création multiple n'utilise pas ce form request.
+     */
     public function rules(): array
     {
-        // On récupère l'ID du modèle en cas d'édition
         $current = $this->route('product_tag');
         $ignoreId = is_object($current) ? $current->getKey() : $current;
 
