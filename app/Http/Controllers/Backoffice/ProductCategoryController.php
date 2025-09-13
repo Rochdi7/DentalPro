@@ -101,7 +101,7 @@ class ProductCategoryController extends Controller
      */
     public function update(ProductCategoryRequest $request, ProductCategory $product_category)
     {
-        // Update the main category
+        // 🔄 Mise à jour de la catégorie principale
         $product_category->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
@@ -113,7 +113,20 @@ class ProductCategoryController extends Controller
             'meta_description' => $request->meta_description,
         ]);
 
-        // Add new subcategories if provided
+        // 🔄 Mettre à jour les sous-catégories existantes
+        if ($request->has('existing_subcategories')) {
+            foreach ($request->existing_subcategories as $id => $name) {
+                $sub = ProductCategory::find($id);
+                if ($sub && $sub->parent_id === $product_category->id) {
+                    $sub->update([
+                        'name' => $name,
+                        'slug' => Str::slug($name),
+                    ]);
+                }
+            }
+        }
+
+        // ➕ Ajouter de nouvelles sous-catégories
         if ($request->has('subcategories')) {
             foreach ($request->subcategories as $subName) {
                 if (trim($subName)) {
@@ -130,7 +143,7 @@ class ProductCategoryController extends Controller
 
         return redirect()
             ->route('backoffice.product-categories.index')
-            ->with('success', 'Catégorie mise à jour avec succès.');
+            ->with('success', 'Catégorie mise à jour avec ses sous-catégories.');
     }
 
     /**
@@ -138,10 +151,14 @@ class ProductCategoryController extends Controller
      */
     public function destroy(ProductCategory $product_category)
     {
-        $product_category->delete();
+        // ✅ Supprimer les sous-catégories d'abord
+        $product_category->children()->forceDelete();
+
+        // ✅ Supprimer la catégorie principale
+        $product_category->forceDelete();
 
         return redirect()
             ->route('backoffice.product-categories.index')
-            ->with('success', 'Catégorie supprimée avec succès.');
+            ->with('success', 'Catégorie et sous-catégories supprimées définitivement.');
     }
 }

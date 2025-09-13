@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductTagRequest;
 use App\Models\ProductTag;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request; 
 
 class ProductTagController extends Controller
 {
@@ -20,20 +21,36 @@ class ProductTagController extends Controller
         return view('backoffice.product_tags.create');
     }
 
-    public function store(ProductTagRequest $request)
-    {
-        $data = $request->validated();
+    public function store(Request $request)
+{
+    $request->validate([
+        'tags' => 'required|string',
+    ]);
 
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['name']);
+    $inputTags = explode(',', $request->input('tags'));
+    $created = [];
+
+    foreach ($inputTags as $tagName) {
+        $name = trim($tagName);
+
+        if ($name !== '') {
+            $slug = Str::slug($name);
+
+            // Évite les doublons avec firstOrCreate
+            $tag = ProductTag::firstOrCreate(
+                ['slug' => $slug],
+                ['name' => $name]
+            );
+
+            $created[] = $tag->name;
         }
-
-        ProductTag::create($data);
-
-        return redirect()
-            ->route('backoffice.product-tags.index')
-            ->with('success', 'Tag créé avec succès.');
     }
+
+    return redirect()
+        ->route('backoffice.product-tags.index')
+        ->with('success', 'Tags créés : ' . implode(', ', $created));
+}
+
 
     public function edit(ProductTag $product_tag)
     {
