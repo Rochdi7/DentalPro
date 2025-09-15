@@ -33,7 +33,7 @@
         @error('description')<div class="text-danger mt-1">{{ $message }}</div>@enderror
     </div>
 
-    {{-- Sous-catégories dynamiques --}}
+    {{-- Sous-catégories dynamiques (ajout) --}}
     <div class="mb-3 col-12">
         <label class="form-label">Sous-catégories (facultatif)</label>
         <div id="subcategories-wrapper">

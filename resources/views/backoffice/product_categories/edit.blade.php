@@ -37,34 +37,37 @@
                 </div>
 
                 <div class="card-body">
-                    {{-- Partiel de formulaire --}}
+                    {{-- Formulaire principal --}}
                     @include('backoffice.product_categories.form', ['category' => $category])
 
-                    {{-- Sous-catégories existantes --}}
-                    <div class="mb-3">
+                    {{-- 🔽 Sous-catégories modifiables --}}
+                    <div class="mb-4">
                         <label class="form-label">Sous-catégories existantes</label>
-                        <ul class="list-group">
+                        <div id="existing-subcategories">
                             @forelse ($category->children as $sub)
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ $sub->name }}
-                                    <form action="{{ route('backoffice.product-categories.destroy', $sub->id) }}"
-                                          method="POST"
-                                          onsubmit="return confirm('Supprimer cette sous-catégorie ?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-sm btn-danger">Supprimer</button>
-                                    </form>
-                                </li>
+                                <div class="input-group mb-2">
+                                    <input type="text"
+                                           class="form-control"
+                                           name="existing_subcategories[{{ $sub->id }}]"
+                                           value="{{ $sub->name }}"
+                                           required>
+                                    <button type="button"
+                                            class="btn btn-outline-danger"
+                                            onclick="removeExistingSubcategory(this, '{{ route('backoffice.product-categories.destroy', $sub->id) }}')">
+                                        Supprimer
+                                    </button>
+                                </div>
                             @empty
-                                <li class="list-group-item">Aucune sous-catégorie.</li>
+                                <p class="text-muted">Aucune sous-catégorie.</p>
                             @endforelse
-                        </ul>
+                        </div>
                     </div>
+
+                    
                 </div>
 
                 <div class="card-footer text-end">
-                    <a href="{{ route('backoffice.product-categories.index') }}"
-                       class="btn btn-secondary">Annuler</a>
+                    <a href="{{ route('backoffice.product-categories.index') }}" class="btn btn-secondary">Annuler</a>
                     <button type="submit" class="btn btn-primary">Mettre à jour</button>
                 </div>
             </div>
@@ -75,31 +78,77 @@
 
 @section('scripts')
 <script>
-    document.getElementById('add-subcategory-btn').addEventListener('click', function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        const addBtn = document.getElementById('add-subcategory-btn');
         const wrapper = document.getElementById('subcategories-wrapper');
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.name = 'subcategories[]';
-        input.placeholder = 'Nom de la sous-catégorie';
-        input.className = 'form-control mb-2';
-        wrapper.appendChild(input);
-    });
 
-    // Bootstrap validation
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            const forms = document.getElementsByClassName('needs-validation');
-            Array.prototype.forEach.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
+        // ✅ Ajout d'un champ dynamique avec bouton "Supprimer"
+        if (addBtn && wrapper) {
+            addBtn.addEventListener('click', function () {
+                const group = document.createElement('div');
+                group.className = 'input-group mb-2';
+
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.name = 'subcategories[]';
+                input.placeholder = 'Nom de la sous-catégorie';
+                input.className = 'form-control';
+                input.required = true;
+
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'btn btn-outline-danger';
+                button.textContent = 'Supprimer';
+                button.onclick = function () {
+                    group.remove();
+                };
+
+                group.appendChild(input);
+                group.appendChild(button);
+                wrapper.appendChild(group);
             });
-        }, false);
-    })();
+        }
+
+        // ✅ Suppression d'une sous-catégorie existante via formulaire POST
+        window.removeExistingSubcategory = function (button, deleteUrl) {
+            if (confirm("Confirmer la suppression de cette sous-catégorie ?")) {
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = deleteUrl;
+
+                const csrf = document.createElement('input');
+                csrf.type = 'hidden';
+                csrf.name = '_token';
+                csrf.value = '{{ csrf_token() }}';
+
+                const method = document.createElement('input');
+                method.type = 'hidden';
+                method.name = '_method';
+                method.value = 'DELETE';
+
+                form.appendChild(csrf);
+                form.appendChild(method);
+                document.body.appendChild(form);
+                form.submit();
+            }
+        };
+
+        // ✅ Bootstrap validation
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                const forms = document.getElementsByClassName('needs-validation');
+                Array.prototype.forEach.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    });
 </script>
 @endsection

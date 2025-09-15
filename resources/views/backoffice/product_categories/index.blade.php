@@ -51,17 +51,34 @@
                                 <tbody>
                                     @foreach ($categories as $category)
                                         <tr>
-                                            <td><strong>{{ $category->name }}</strong></td>
+                                            <td>
+                                                <strong>{{ $category->name }}</strong>
+                                                @if($category->parent_id)
+                                                    <span class="badge bg-secondary ms-2">Sous-catégorie</span>
+                                                @endif
+                                            </td>
                                             <td>{{ Str::limit($category->description, 60) }}</td>
                                             <td>{{ $category->created_at->format('d/m/Y') }}</td>
                                             <td>
-                                                <a href="{{ route('backoffice.product-categories.edit', $category) }}" class="avtar avtar-xs btn-link-secondary me-2" title="Modifier">
-                                                    <i class="ti ti-edit f-20"></i>
-                                                </a>
-                                                <form action="{{ route('backoffice.product-categories.destroy', $category) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Supprimer cette catégorie ?')">
+                                                {{-- Bouton Modifier uniquement si catégorie principale --}}
+                                                @if (is_null($category->parent_id))
+                                                    <a href="{{ route('backoffice.product-categories.edit', $category) }}"
+                                                       class="avtar avtar-xs btn-link-secondary me-2"
+                                                       title="Modifier">
+                                                        <i class="ti ti-edit f-20"></i>
+                                                    </a>
+                                                @endif
+
+                                                {{-- Supprimer toujours autorisé --}}
+                                                <form action="{{ route('backoffice.product-categories.destroy', $category) }}"
+                                                      method="POST"
+                                                      class="d-inline-block"
+                                                      onsubmit="return confirm('Supprimer cette catégorie ?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="avtar avtar-xs btn-link-secondary border-0 bg-transparent p-0" title="Supprimer">
+                                                    <button type="submit"
+                                                            class="avtar avtar-xs btn-link-secondary border-0 bg-transparent p-0"
+                                                            title="Supprimer">
                                                         <i class="ti ti-trash f-20"></i>
                                                     </button>
                                                 </form>
