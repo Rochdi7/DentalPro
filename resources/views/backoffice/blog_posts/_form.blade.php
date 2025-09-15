@@ -10,7 +10,7 @@
 
 <div class="mb-3">
   <label class="form-label">Catégorie</label>
-  <select name="blog_category_id" class="form-select">
+  <select name="blog_category_id" id="blog_category_id" class="form-select">
     <option value="">-- Choisir --</option>
     @foreach ($categories as $cat)
       <option value="{{ $cat->id }}" @selected(old('blog_category_id', $post->blog_category_id ?? '') == $cat->id)>
@@ -22,7 +22,7 @@
 
 <div class="mb-3">
   <label class="form-label">Tags</label>
-  <select name="tag_ids[]" class="form-select" multiple>
+  <select name="tag_ids[]" id="tags-select" class="form-select" multiple>
     @foreach ($tags as $tag)
       <option value="{{ $tag->id }}"
         @selected(collect(old('tag_ids', $post?->tags->pluck('id')->toArray() ?? []))->contains($tag->id))>
@@ -39,9 +39,7 @@
 
 <div class="mb-3">
   <label class="form-label">Contenu</label>
-  <textarea name="body" id="classic-editor" class="form-control" rows="10" required>
-    {{ old('body', $post->body ?? '') }}
-  </textarea>
+  <textarea name="body" id="classic-editor" class="form-control" rows="10" required>{{ old('body', $post->body ?? '') }}</textarea>
 </div>
 
 <div class="mb-3">
@@ -56,16 +54,17 @@
 
 <div class="mb-3">
   <label class="form-label">Image principale</label>
-  <input type="file" name="cover" class="form-control">
+  <input type="file" name="cover" id="image" class="form-control">
 
   @if (isset($post) && $post->getFirstMediaUrl('cover'))
     <div class="mt-2">
       <small class="text-muted d-block mb-1">Image actuelle :</small>
-      <img src="{{ $post->getFirstMediaUrl('cover', 'thumb') }}" alt="Image principale" style="max-height: 150px;">
+      <img id="image-preview" src="{{ $post->getFirstMediaUrl('cover', 'thumb') }}" alt="Image principale" style="max-height: 150px;">
     </div>
+  @else
+    <img id="image-preview" src="" style="max-height: 150px; display:none;" alt="Prévisualisation">
   @endif
 </div>
-
 
 <div class="mb-3">
   <label class="form-label">Galerie (images multiples)</label>
@@ -95,4 +94,3 @@
   <input type="datetime-local" name="published_at" class="form-control"
     value="{{ old('published_at', isset($post->published_at) ? $post->published_at->format('Y-m-d\TH:i') : '') }}">
 </div>
-
