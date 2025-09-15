@@ -1,3 +1,12 @@
+<li class="pc-item">
+  <a href="{{ route('backoffice.dashboard') }}" class="pc-link">
+    <span class="pc-micon">
+      <i class="ph-duotone ph-gauge"></i>
+    </span>
+    <span class="pc-mtext" data-i18n="Tableau de bord">Tableau de bord</span>
+  </a>
+</li>
+
 {{-- 🛒 Menu Produits --}}
 <li class="pc-item pc-hasmenu">
   <a href="#!" class="pc-link">

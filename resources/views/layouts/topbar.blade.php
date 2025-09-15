@@ -12,7 +12,7 @@
                         <i class="ti ti-menu-2"></i>
                     </a>
                 </li>
-                
+
             </ul>
         </div>
         <div class="ms-auto">
@@ -34,7 +34,7 @@
                     </div>
                 </li> --}}
 
-                
+
 
                 <li class="dropdown pc-h-item header-user-profile">
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
@@ -42,7 +42,8 @@
                         @php
                             $user = Auth::user();
                             $avatar =
-                                $user->getFirstMediaUrl('avatars', 'thumb') ?: asset('build/images/user/avatar-1.jpg');
+                                optional($user)->getFirstMediaUrl('avatars', 'thumb') ?:
+                                asset('build/images/user/avatar-1.jpg');
                         @endphp
 
                         <img src="{{ $avatar }}" alt="{{ $user->name }}" class="user-avtar avtar avtar-s" />
