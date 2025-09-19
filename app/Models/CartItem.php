@@ -3,24 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Wishlist extends Model
+class CartItem extends Model
 {
     protected $fillable = [
-        'user_id',
         'session_id',
         'product_id',
         'product_variant_id',
+        'quantity',
     ];
 
-    public function product(): BelongsTo
+    public function product()
     {
         return $this->belongsTo(Product::class)->with('media');
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
     }
 }

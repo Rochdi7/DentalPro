@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -33,7 +34,6 @@ class BlogPost extends Model implements HasMedia
         'published_at' => 'datetime',
     ];
 
-    // Prefer slug in routes
     public function getRouteKeyName(): string
     {
         return 'slug';
@@ -46,9 +46,9 @@ class BlogPost extends Model implements HasMedia
     }
 
     public function tags()
-{
-    return $this->belongsToMany(BlogTag::class, 'blog_post_tag', 'blog_post_id', 'blog_tag_id');
-}
+    {
+        return $this->belongsToMany(BlogTag::class, 'blog_post_tag', 'blog_post_id', 'blog_tag_id');
+    }
 
     /** Scopes */
     public function scopePublished($query)
@@ -78,7 +78,6 @@ class BlogPost extends Model implements HasMedia
     public function setTitleAttribute($value)
     {
         $this->attributes['title'] = $value;
-        // Auto-generate slug if missing
         if (empty($this->attributes['slug'])) {
             $base = Str::slug(Str::limit($value, 80, ''));
             $slug = $base;
@@ -94,36 +93,30 @@ class BlogPost extends Model implements HasMedia
     /** Media Library */
     public function registerMediaCollections(): void
     {
-        // Single main image
         $this->addMediaCollection('cover')
             ->useFallbackUrl('/images/placeholders/post-cover.jpg')
             ->useFallbackPath(public_path('images/placeholders/post-cover.jpg'))
             ->singleFile();
 
-        // Additional images
         $this->addMediaCollection('images');
     }
 
     public function registerMediaConversions(Media $media = null): void
-    {
-        // Square thumbnail
-        $this->addMediaConversion('thumb')
-            ->fit('crop', 300, 300)
-            ->sharpen(8)
-            ->nonQueued();
+{
+    $this->addMediaConversion('thumb')
+        ->fit(Fit::Contain, 300, 300) // ✅ Ne coupe plus l'image, mais l'adapte dans 300x300
+        ->nonQueued();
 
-        // Card size
-        $this->addMediaConversion('card')
-            ->width(768)
-            ->height(432)
-            ->nonQueued();
+    $this->addMediaConversion('card')
+        ->width(768)
+        ->height(432)
+        ->nonQueued();
 
-        // Large banner
-        $this->addMediaConversion('banner')
-            ->width(1600)
-            ->height(900)
-            ->performOnCollections('cover', 'images');
-    }
+    $this->addMediaConversion('banner')
+        ->width(1600)
+        ->height(900)
+        ->performOnCollections('cover', 'images');
+}
 
     /** Helpers */
     public function publish(?\DateTimeInterface $at = null): void

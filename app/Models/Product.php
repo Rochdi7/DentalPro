@@ -22,6 +22,8 @@ class Product extends Model implements HasMedia
         'product_category_id',
         'sku',
         'is_published',
+        'is_hot',          // ✅ NEW
+        'is_occasion',     // ✅ NEW
         'meta_title',
         'meta_description',
         'published_at',
@@ -29,9 +31,11 @@ class Product extends Model implements HasMedia
 
     protected $casts = [
         'is_published' => 'boolean',
+        'is_hot'       => 'boolean',   // ✅ NEW
+        'is_occasion'  => 'boolean',   // ✅ NEW
         'published_at' => 'datetime',
-        'price' => 'decimal:2',
-        'old_price' => 'decimal:2',
+        'price'        => 'decimal:2',
+        'old_price'    => 'decimal:2',
     ];
 
     protected static function booted()
@@ -72,13 +76,10 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(ProductCategory::class, 'product_category_id');
     }
 
-
     public function tags()
     {
         return $this->belongsToMany(ProductTag::class, 'product_tag', 'product_id', 'product_tag_id');
     }
-
-
 
     /**
      * Product variants relationship
@@ -105,8 +106,43 @@ class Product extends Model implements HasMedia
             return null;
         }
 
-        return round((($this->old_price - $this->price) / $this->old_price) * 100);
+        return (int) round((($this->old_price - $this->price) / $this->old_price) * 100);
     }
 
+    /**
+     * Scopes utiles
+     */
+    public function scopeHot($query)
+    {
+        return $query->where('is_hot', true);
+    }
+
+    public function scopeOccasion($query)
+    {
+        return $query->where('is_occasion', true);
+    }
+    public function isInWishlist(): bool
+    {
+        $sessionId = session()->getId();
+
+        return $this->wishlists()
+            ->where('session_id', $sessionId)
+            ->exists();
+    }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
+    public function registerMediaConversions(?\Spatie\MediaLibrary\MediaCollections\Models\Media $media = null): void
+{
+    $this->addMediaConversion('thumb')
+        ->width(300)
+        ->height(300)
+        ->sharpen(10)
+        ->format('webp')
+        ->nonQueued();
+}
 
 }
