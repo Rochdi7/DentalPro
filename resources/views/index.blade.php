@@ -22,10 +22,10 @@
                                 <div class="ps-banner__block">
                                     <div class="ps-banner__content">
                                         <h2 class="ps-banner__title">Kit de <br /> Blanchiment Candid</h2>
-                                        <div class="ps-banner__desc">Uniquement cette semaine. Ne ratez pas l'offre !</div>
+                                        <div class="ps-banner__desc">Offre exclusive cette semaine chez DentalPro !</div>
                                         <div class="ps-banner__price">
-                                            <span>15,99 €</span>
-                                            <del>29,99 €</del>
+                                            <span>159 MAD</span>
+                                            <del>299 MAD</del>
                                         </div>
                                         <a class="bg-warning ps-banner__shop" href="#">Acheter maintenant</a>
                                         <div class="ps-banner__persen bg-warning ps-center">-30%</div>
@@ -45,8 +45,8 @@
                                 <div class="ps-banner__block">
                                     <div class="ps-banner__content">
                                         <h2 class="ps-banner__title">Masque médical<br /> antibactérien</h2>
-                                        <div class="ps-banner__desc">Quelques secondes suffisent pour mesurer votre
-                                            température.</div>
+                                        <div class="ps-banner__desc">Protégez-vous et votre cabinet en quelques secondes.
+                                        </div>
                                         <div class="ps-banner__btn-group">
                                             <div class="ps-banner__btn">
                                                 <img src="{{ asset('assets/img/icon3.png') }}"
@@ -57,7 +57,7 @@
                                             </div>
                                         </div>
                                         <a class="bg-warning ps-banner__shop" href="#">Acheter maintenant</a>
-                                        <div class="ps-banner__persen bg-yellow ps-top"><small>seulement</small>25€</div>
+                                        <div class="ps-banner__persen bg-yellow ps-top"><small>seulement</small>25 MAD</div>
                                     </div>
                                     <div class="ps-banner__thumnail">
                                         <img class="ps-banner__round" src="{{ asset('assets/img/round5.png') }}"
@@ -73,9 +73,8 @@
                             <div class="container container-initial">
                                 <div class="ps-banner__block">
                                     <div class="ps-banner__content">
-                                        <h2 class="ps-banner__title">Éliminez les bactéries <br />de votre environnement
-                                        </h2>
-                                        <div class="ps-banner__desc">Dites adieu à toutes les bactéries !</div>
+                                        <h2 class="ps-banner__title">Éliminez les bactéries <br />de votre cabinet</h2>
+                                        <div class="ps-banner__desc">Assurez un environnement sain pour vos patients !</div>
                                         <div class="ps-banner__btn-group">
                                             <div class="ps-banner__btn">
                                                 <img src="{{ asset('assets/img/icon3.png') }}"
@@ -92,13 +91,14 @@
                                         <img class="ps-banner__round" src="{{ asset('assets/img/round2.png') }}"
                                             alt="fond rond" />
                                         <img class="ps-banner__image" src="{{ asset('assets/img/promotion/slide4.png') }}"
-                                            alt="bactéries maison" />
+                                            alt="bactéries cabinet" />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
+
                 </section>
 
                 <div class="ps-home__content">
@@ -162,6 +162,7 @@
                                         <a class="ps-category__more" href="category-grid.html">Voir plus</a>
                                     </div>
                                 </div>
+
                                 <div class="ps-category__thumbnail">
                                     <a class="ps-category__image" href="category-grid.html">
                                         <img src="{{ asset('assets/img/promotion/uniforms-cat.png') }}" alt>
@@ -171,12 +172,33 @@
                                         <a class="ps-category__more" href="category-grid.html">Voir plus</a>
                                     </div>
                                 </div>
+
                                 <div class="ps-category__thumbnail">
                                     <a class="ps-category__image" href="category-grid.html">
                                         <img src="{{ asset('assets/img/promotion/protectcover-cat.png') }}" alt>
                                     </a>
                                     <div class="ps-category__content">
                                         <a class="ps-category__name" href="category-grid.html">Housses de protection</a>
+                                        <a class="ps-category__more" href="category-grid.html">Voir plus</a>
+                                    </div>
+                                </div>
+
+                                <div class="ps-category__thumbnail">
+                                    <a class="ps-category__image" href="category-grid.html">
+                                        <img src="{{ asset('assets/img/promotion/dental-cat.png') }}" alt>
+                                    </a>
+                                    <div class="ps-category__content">
+                                        <a class="ps-category__name" href="category-grid.html">Matériel dentaire</a>
+                                        <a class="ps-category__more" href="category-grid.html">Voir plus</a>
+                                    </div>
+                                </div>
+
+                                <div class="ps-category__thumbnail">
+                                    <a class="ps-category__image" href="category-grid.html">
+                                        <img src="{{ asset('assets/img/promotion/pressure-cat.png') }}" alt>
+                                    </a>
+                                    <div class="ps-category__content">
+                                        <a class="ps-category__name" href="category-grid.html">Tensiomètres</a>
                                         <a class="ps-category__more" href="category-grid.html">Voir plus</a>
                                     </div>
                                 </div>
@@ -287,23 +309,21 @@
                                                     <div class="ps-product__actions">
                                                         <div class="ps-product__item" data-toggle="tooltip"
                                                             data-placement="left" title="Wishlist">
-                                                            <a href="#" class="btn-wishlist"
+                                                            <a href="javascript:void(0)" class="btn-wishlist"
                                                                 data-id="{{ $product->id }}"><i
                                                                     class="fa fa-heart-o"></i></a>
                                                         </div>
-                                                        {{-- 🔴 Comparaison supprimée --}}
                                                         <div class="ps-product__item" data-toggle="tooltip"
                                                             data-placement="left" title="Aperçu rapide">
-                                                            <a href="#" class="btn-quickview"
+                                                            <a href="javascript:void(0)" class="btn-quickview"
                                                                 data-id="{{ $product->id }}">
                                                                 <i class="fa fa-search"></i>
                                                             </a>
                                                         </div>
 
-
                                                         <div class="ps-product__item" data-toggle="tooltip"
                                                             data-placement="left" title="Ajouter au panier">
-                                                            <a href="#" class="btn-cart"
+                                                            <a href="javascript:void(0)" class="btn-cart"
                                                                 data-id="{{ $product->id }}"><i
                                                                     class="fa fa-shopping-basket"></i></a>
                                                         </div>
@@ -351,28 +371,29 @@
                                                         <div class="ps-product__quantity">
                                                             <div class="def-number-input number-input safari_only">
                                                                 <button class="minus"
-                                                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"><i
+                                                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false;"><i
                                                                         class="icon-minus"></i></button>
                                                                 <input class="quantity" min="1" name="quantity"
                                                                     value="1" type="number" />
                                                                 <button class="plus"
-                                                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"><i
+                                                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false;"><i
                                                                         class="icon-plus"></i></button>
                                                             </div>
                                                         </div>
                                                         <div class="ps-product__cart">
-                                                            <a class="ps-btn ps-btn--warning btn-cart" href="#"
+                                                            <a class="ps-btn ps-btn--warning btn-cart"
+                                                                href="javascript:void(0)"
                                                                 data-id="{{ $product->id }}">Ajouter au panier</a>
                                                         </div>
                                                         <div class="ps-product__item cart" data-toggle="tooltip"
                                                             data-placement="left" title="Ajouter au panier">
-                                                            <a href="#" class="btn-cart"
+                                                            <a href="javascript:void(0)" class="btn-cart"
                                                                 data-id="{{ $product->id }}"><i
                                                                     class="fa fa-shopping-basket"></i></a>
                                                         </div>
                                                         <div class="ps-product__item" data-toggle="tooltip"
                                                             data-placement="left" title="Wishlist">
-                                                            <a href="#" class="btn-wishlist"
+                                                            <a href="javascript:void(0)" class="btn-wishlist"
                                                                 data-id="{{ $product->id }}"><i
                                                                     class="fa fa-heart-o"></i></a>
                                                         </div>
@@ -456,7 +477,7 @@
                                                     <div class="ps-product__actions">
                                                         <div class="ps-product__item" data-toggle="tooltip"
                                                             title="Wishlist">
-                                                            <a href="#"
+                                                            <a href="javascript:void(0)"
                                                                 class="btn-wishlist {{ in_array($product->id, session('wishlist', [])) ? 'active' : '' }}"
                                                                 data-id="{{ $product->id }}">
                                                                 <i
@@ -464,15 +485,16 @@
                                                             </a>
                                                         </div>
 
-
                                                         <div class="ps-product__item" data-toggle="tooltip"
-                                                            title="Aperçu rapide">
-                                                            <a href="#"><i class="fa fa-search"></i></a>
+                                                            data-placement="left" title="Aperçu rapide">
+                                                            <a href="javascript:void(0)" class="btn-quickview"
+                                                                data-id="{{ $product->id }}">
+                                                                <i class="fa fa-search"></i>
+                                                            </a>
                                                         </div>
-
                                                         <div class="ps-product__item" data-toggle="tooltip"
                                                             title="Ajouter au panier">
-                                                            <a href="#" class="btn-cart"
+                                                            <a href="javascript:void(0)" class="btn-cart"
                                                                 data-id="{{ $product->id }}">
                                                                 <i class="fa fa-shopping-basket"></i>
                                                             </a>
@@ -521,25 +543,30 @@
                                                     <div class="ps-product__actions ps-product__group-mobile">
                                                         <div class="ps-product__quantity">
                                                             <div class="def-number-input number-input safari_only">
-                                                                <button class="minus"><i class="icon-minus"></i></button>
+                                                                <button class="minus"
+                                                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false;"><i
+                                                                        class="icon-minus"></i></button>
                                                                 <input class="quantity" min="1" name="quantity"
                                                                     value="1" type="number" />
-                                                                <button class="plus"><i class="icon-plus"></i></button>
+                                                                <button class="plus"
+                                                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false;"><i
+                                                                        class="icon-plus"></i></button>
                                                             </div>
                                                         </div>
                                                         <div class="ps-product__cart">
-                                                            <a href="#" class="ps-btn ps-btn--warning btn-cart"
+                                                            <a href="javascript:void(0)"
+                                                                class="ps-btn ps-btn--warning btn-cart"
                                                                 data-id="{{ $product->id }}">Ajouter au panier</a>
                                                         </div>
                                                         <div class="ps-product__item cart" data-toggle="tooltip"
                                                             title="Ajouter au panier">
-                                                            <a href="#" class="btn-cart"
+                                                            <a href="javascript:void(0)" class="btn-cart"
                                                                 data-id="{{ $product->id }}"><i
                                                                     class="fa fa-shopping-basket"></i></a>
                                                         </div>
                                                         <div class="ps-product__item" data-toggle="tooltip"
                                                             title="Wishlist">
-                                                            <a href="#"
+                                                            <a href="javascript:void(0)"
                                                                 class="btn-wishlist {{ in_array($product->id, session('wishlist', [])) ? 'active' : '' }}"
                                                                 data-id="{{ $product->id }}">
                                                                 <i
@@ -556,7 +583,6 @@
                                 </div>
                             </div>
                         </section>
-
 
                         <section class="ps-section--sellers">
                             <h3 class="ps-section__title">Top 5 des meilleures ventes :</h3>
@@ -644,18 +670,20 @@
                                                                     <div class="ps-product__quantity">
                                                                         <div
                                                                             class="def-number-input number-input safari_only">
-                                                                            <button class="minus"><i
+                                                                            <button class="minus"
+                                                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false;"><i
                                                                                     class="icon-minus"></i></button>
                                                                             <input class="quantity" min="1"
                                                                                 name="quantity" value="1"
                                                                                 type="number" />
-                                                                            <button class="plus"><i
+                                                                            <button class="plus"
+                                                                                onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false;"><i
                                                                                     class="icon-plus"></i></button>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="ps-product__cart">
-                                                                        <a href="#"
+                                                                        <a href="javascript:void(0)"
                                                                             class="ps-btn ps-btn--warning btn-cart"
                                                                             data-id="{{ $product->id }}">Ajouter au
                                                                             panier</a>
@@ -664,7 +692,7 @@
                                                                     <div class="ps-product__item cart"
                                                                         data-toggle="tooltip" data-placement="left"
                                                                         title="Ajouter au panier">
-                                                                        <a href="#" class="btn-cart"
+                                                                        <a href="javascript:void(0)" class="btn-cart"
                                                                             data-id="{{ $product->id }}">
                                                                             <i class="fa fa-shopping-basket"></i>
                                                                         </a>
@@ -672,7 +700,7 @@
 
                                                                     <div class="ps-product__item" data-toggle="tooltip"
                                                                         data-placement="left" title="Favoris">
-                                                                        <a href="#"
+                                                                        <a href="javascript:void(0)"
                                                                             class="btn-wishlist {{ in_array($product->id, session('wishlist', [])) ? 'active' : '' }}"
                                                                             data-id="{{ $product->id }}">
                                                                             <i
@@ -747,7 +775,7 @@
                                                         <div class="ps-product__actions">
                                                             <div class="ps-product__item" data-toggle="tooltip"
                                                                 title="Ajouter aux favoris">
-                                                                <a href="#"
+                                                                <a href="javascript:void(0)"
                                                                     class="btn-wishlist {{ in_array($product->id, session('wishlist', [])) ? 'active' : '' }}"
                                                                     data-id="{{ $product->id }}">
                                                                     <i
@@ -756,12 +784,15 @@
                                                             </div>
 
                                                             <div class="ps-product__item" data-toggle="tooltip"
-                                                                title="Aperçu rapide">
-                                                                <a href="#"><i class="fa fa-search"></i></a>
+                                                                data-placement="left" title="Aperçu rapide">
+                                                                <a href="javascript:void(0)" class="btn-quickview"
+                                                                    data-id="{{ $product->id }}">
+                                                                    <i class="fa fa-search"></i>
+                                                                </a>
                                                             </div>
                                                             <div class="ps-product__item" data-toggle="tooltip"
                                                                 title="Ajouter au panier">
-                                                                <a href="#" class="btn-cart"
+                                                                <a href="javascript:void(0)" class="btn-cart"
                                                                     data-id="{{ $product->id }}">
                                                                     <i class="fa fa-shopping-basket"></i>
                                                                 </a>
@@ -811,30 +842,33 @@
                                                         <div class="ps-product__actions ps-product__group-mobile">
                                                             <div class="ps-product__quantity">
                                                                 <div class="def-number-input number-input safari_only">
-                                                                    <button class="minus"><i
+                                                                    <button class="minus"
+                                                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false;"><i
                                                                             class="icon-minus"></i></button>
                                                                     <input class="quantity" min="1"
                                                                         name="quantity" value="1" type="number" />
-                                                                    <button class="plus"><i
+                                                                    <button class="plus"
+                                                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false;"><i
                                                                             class="icon-plus"></i></button>
                                                                 </div>
                                                             </div>
                                                             <div class="ps-product__cart">
-                                                                <a class="ps-btn ps-btn--warning btn-cart" href="#"
+                                                                <a class="ps-btn ps-btn--warning btn-cart"
+                                                                    href="javascript:void(0)"
                                                                     data-id="{{ $product->id }}">
                                                                     Ajouter au panier
                                                                 </a>
                                                             </div>
                                                             <div class="ps-product__item cart" data-toggle="tooltip"
                                                                 title="Ajouter au panier">
-                                                                <a href="#" class="btn-cart"
+                                                                <a href="javascript:void(0)" class="btn-cart"
                                                                     data-id="{{ $product->id }}">
                                                                     <i class="fa fa-shopping-basket"></i>
                                                                 </a>
                                                             </div>
                                                             <div class="ps-product__item" data-toggle="tooltip"
                                                                 title="Favoris">
-                                                                <a href="#"
+                                                                <a href="javascript:void(0)"
                                                                     class="btn-wishlist {{ in_array($product->id, session('wishlist', [])) ? 'active' : '' }}"
                                                                     data-id="{{ $product->id }}">
                                                                     <i
@@ -853,7 +887,6 @@
                                 <div class="ps-shop__more"><a href="#">Voir tous les produits</a></div>
                             </div>
                         </section>
-
 
                     </div>
                     <section class="ps-section--reviews" data-background="{{ asset('assets/img/roundbg.png') }}">
@@ -1008,20 +1041,36 @@
 
                         <section class="ps-section--newsletter"
                             data-background="{{ asset('assets/img/newsletter-bg.jpg') }}">
-                            <h3 class="ps-section__title">Inscrivez-vous à notre newsletter et recevez <br>20 DH de
-                                réduction sur votre première commande</h3>
+                            <h3 class="ps-section__title">
+                                Inscrivez-vous à notre newsletter et recevez <br>
+                                <span style="color:#ff9900;">100 DH</span> de réduction sur votre première commande
+                            </h3>
                             <div class="ps-section__content">
-                                <form action="do_action" method="post">
+                                <form action="{{ route('newsletter.subscribe') }}" method="POST">
+                                    @csrf
                                     <div class="ps-form--subscribe">
                                         <div class="ps-form__control">
-                                            <input class="form-control ps-input" type="email"
-                                                placeholder="Entrez votre adresse e-mail">
-                                            <button class="ps-btn ps-btn--warning">S’inscrire</button>
+                                            <input class="form-control ps-input" type="email" name="email"
+                                                placeholder="Entrez votre adresse e-mail" required>
+                                            <button type="submit" class="ps-btn ps-btn--warning">S’inscrire</button>
                                         </div>
                                     </div>
                                 </form>
+
+                                {{-- ✅ Message succès --}}
+                                @if (session('success'))
+                                    <div class="alert alert-success mt-3">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+
+                                {{-- ⚠️ Message erreur --}}
+                                @error('email')
+                                    <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                @enderror
                             </div>
                         </section>
+
                     </div>
 
                 </div>
