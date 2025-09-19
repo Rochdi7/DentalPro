@@ -11,28 +11,29 @@ use App\Http\Controllers\Backoffice\ProductTagController;
 use App\Http\Controllers\Backoffice\BlogTagController;
 use App\Http\Controllers\Backoffice\BlogCategoryController;
 use App\Http\Controllers\Backoffice\BlogPostController;
+use App\Http\Controllers\Backoffice\DashboardController;
 
-// Auth routes (NO register)
+// 🔐 Auth routes (login only)
 Auth::routes(['register' => false]);
 
-// Override /register to show custom error page
+// 🚫 Custom error page for /register
 Route::any('/register', function () {
     return response()->view('pages.error-404', [], 404);
 })->name('register')->middleware('guest');
 
-// Backoffice routes (require authentication + admin)
+// 🖥️ Backoffice routes (require auth + admin)
 Route::middleware(['auth', 'admin'])->prefix('backoffice')->name('backoffice.')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('dashboard.dashboard');
-    })->name('dashboard');
+    // ✅ Dashboard (controller-based)
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // ✅ Profile routes
+    // ✅ Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::post('/profile', [ProfileController::class, 'update'])->name('backoffice.profile.update');
-    Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('backoffice.profile.updatePassword');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
 
-    // ✅ Product routes
+
+    // ✅ Products
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('index');
         Route::get('/create', [ProductController::class, 'create'])->name('create');
@@ -42,20 +43,21 @@ Route::middleware(['auth', 'admin'])->prefix('backoffice')->name('backoffice.')-
         Route::delete('/{product}', [ProductController::class, 'destroy'])->name('destroy');
     });
 
-    // ✅ Product categories & tags
+    // ✅ Product categories
     Route::resource('product-categories', ProductCategoryController::class)
         ->names('product-categories')
         ->parameters(['product-categories' => 'product_category']);
 
+    // ✅ Product tags
     Route::resource('product-tags', ProductTagController::class)
         ->names('product-tags');
 
-    // ✅ Blog tags (uses blog_tags for route name and URL)
+    // ✅ Blog tags
     Route::resource('blog_tags', BlogTagController::class)
         ->names('blog_tags')
         ->parameters(['blog_tags' => 'blog_tag']);
 
-    // ✅ Blog categories (you can rename to blog_categories for consistency)
+    // ✅ Blog categories
     Route::resource('blog_categories', BlogCategoryController::class)
         ->names('blog_categories')
         ->parameters(['blog_categories' => 'blog_category']);
@@ -65,6 +67,6 @@ Route::middleware(['auth', 'admin'])->prefix('backoffice')->name('backoffice.')-
         ->names('blog_posts')
         ->parameters(['blog_posts' => 'blog_post']);
 
-    // Catch-all page route (static fallback pages)
+    // 📄 Fallback static page (About, Contact, etc.)
     Route::get('{routeName}/{name?}', [HomeController::class, 'pageView']);
 });

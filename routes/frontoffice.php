@@ -62,6 +62,12 @@ Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])
 
 // 🔍 Recherche
 Route::get('/search', [SearchController::class, 'index'])->name('frontoffice.search');
+Route::get('/search/ajax', [App\Http\Controllers\Frontoffice\ProductController::class, 'ajaxSearch'])->name('frontoffice.search.ajax');
+
 
 // 🗂️ Catégories
 Route::get('/categorie/{slug}', [CategoryController::class, 'index'])->name('frontoffice.category');
+
+Route::get('/quickview/{id}', [App\Http\Controllers\Frontoffice\ProductController::class, 'quickview'])
+    ->name('product.quickview');
+
