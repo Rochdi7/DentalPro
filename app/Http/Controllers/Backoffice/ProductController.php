@@ -22,11 +22,10 @@ class ProductController extends Controller
 
     public function create()
     {
-        $parents  = ProductCategory::whereNull('parent_id')->orderBy('name')->get();
-        $children = ProductCategory::whereNotNull('parent_id')->orderBy('name')->get();
-        $tags     = ProductTag::orderBy('name')->get();
+        $categories = ProductCategory::with('children')->whereNull('parent_id')->get();
+        $tags = ProductTag::orderBy('name')->get();
 
-        return view('backoffice.products.create', compact('parents', 'children', 'tags'));
+        return view('backoffice.products.create', compact('categories', 'tags'));
     }
 
     public function store(ProductRequest $request)
@@ -82,9 +81,9 @@ class ProductController extends Controller
 
             Log::error('Product Store Error:', [
                 'message' => $e->getMessage(),
-                'file'    => $e->getFile(),
-                'line'    => $e->getLine(),
-                'trace'   => $e->getTraceAsString(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTraceAsString(),
             ]);
 
             return back()->withInput()->withErrors('Erreur lors de la création du produit: ' . $e->getMessage());
@@ -93,13 +92,13 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $parents  = ProductCategory::whereNull('parent_id')->orderBy('name')->get();
-        $children = ProductCategory::whereNotNull('parent_id')->orderBy('name')->get();
-        $tags     = ProductTag::orderBy('name')->get();
+        // Load parent categories with their children to provide a hierarchical dropdown
+        $categories = ProductCategory::with('children')->whereNull('parent_id')->get();
+        $tags = ProductTag::orderBy('name')->get();
 
         $product->load(['tags', 'media', 'characteristics']);
 
-        return view('backoffice.products.edit', compact('product', 'parents', 'children', 'tags'));
+        return view('backoffice.products.edit', compact('product', 'categories', 'tags'));
     }
 
     public function update(ProductRequest $request, Product $product)
@@ -179,7 +178,7 @@ class ProductController extends Controller
         $seenIds = [];
 
         foreach ($characteristics as $char) {
-            $name  = trim($char['attribute_name'] ?? '');
+            $name = trim($char['attribute_name'] ?? '');
             $value = trim($char['value'] ?? '');
 
             if ($name === '' || $value === '') {
@@ -188,8 +187,8 @@ class ProductController extends Controller
 
             $data = [
                 'attribute_name' => $name,
-                'value'          => $value,
-                'position'       => isset($char['position']) && is_numeric($char['position']) ? (int)$char['position'] : 0,
+                'value' => $value,
+                'position' => isset($char['position']) && is_numeric($char['position']) ? (int)$char['position'] : 0,
             ];
 
             if (!empty($char['id'])) {
