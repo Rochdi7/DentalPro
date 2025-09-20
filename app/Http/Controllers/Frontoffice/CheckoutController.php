@@ -11,18 +11,11 @@ use Illuminate\Support\Facades\Log;
 
 class CheckoutController extends Controller
 {
-    /**
-     * Show checkout page
-     */
     public function index()
     {
         $cartItems = session('cart', []);
         $productIds = collect($cartItems)->pluck('product_id')->unique()->toArray();
-
-        $products = Product::with('media')
-            ->whereIn('id', $productIds)
-            ->get()
-            ->keyBy('id');
+        $products = Product::with('media')->whereIn('id', $productIds)->get()->keyBy('id');
 
         $cart = [];
         $total = 0;
@@ -33,8 +26,7 @@ class CheckoutController extends Controller
 
             if ($productId && $products->has($productId)) {
                 $product  = $products[$productId];
-                $price    = (float) $product->price;
-                $subtotal = $price * $quantity;
+                $subtotal = $product->price * $quantity;
                 $total   += $subtotal;
 
                 $cart[] = [
@@ -48,12 +40,8 @@ class CheckoutController extends Controller
         return view('frontoffice.checkout.index', compact('cart', 'total'));
     }
 
-    /**
-     * Handle checkout form submission
-     */
     public function store(Request $request)
     {
-        // ✅ Validation stricte
         $validated = $request->validate([
             'email'         => 'required|email|max:150',
             'first_name'    => 'required|string|max:100',
@@ -66,7 +54,8 @@ class CheckoutController extends Controller
             'phone'         => 'required|string|max:30',
             'order_notes'   => 'nullable|string|max:1000',
             'shipping'      => 'nullable|string|in:free,none',
-            'payment'       => 'required|string|in:cod',
+            'payment'       => 'nullable|string|in:cod,whatsapp',
+            'agree_faq'     => 'accepted', // ✅ CGU checkbox
         ]);
 
         $cartItems = session('cart', []);
@@ -86,8 +75,7 @@ class CheckoutController extends Controller
 
             if ($productId && $products->has($productId)) {
                 $product  = $products[$productId];
-                $price    = (float) $product->price;
-                $subtotal = $price * $quantity;
+                $subtotal = $product->price * $quantity;
                 $total   += $subtotal;
 
                 $cart[] = [
@@ -102,29 +90,36 @@ class CheckoutController extends Controller
             return back()->withErrors(['cart' => 'Le montant total doit être supérieur à 0.'])->withInput();
         }
 
-        // ✅ Préparation des données de commande
+        // WhatsApp redirect option
+        if ($request->input('payment') === 'whatsapp') {
+            $message = "Bonjour, je souhaite passer une commande sur DentalPro.ma.%0A";
+            foreach ($cart as $item) {
+                $message .= "- {$item['product']->title} x {$item['quantity']}%0A";
+            }
+            $message .= "%0ATotal: " . number_format($total, 2, '.', ' ') . " MAD";
+            $phone = "212702785190";
+            return redirect()->away("https://wa.me/{$phone}?text={$message}");
+        }
+
+        // Standard form (COD)
         $orderData = array_merge($validated, [
             'cart'     => $cart,
             'total'    => $total,
             'shipping' => $request->input('shipping', 'none'),
+            'payment'  => $request->input('payment', 'cod'),
         ]);
 
-        // ✅ Envoi de l’email
         try {
-            Mail::to('rochdi.karouali1234@gmail.com')
-                ->send(new OrderPlacedMail($orderData));
-
+            Mail::to('rochdi.karouali1234@gmail.com')->send(new OrderPlacedMail($orderData));
             Log::info('✅ Order email sent successfully', ['to' => 'rochdi.karouali1234@gmail.com']);
         } catch (\Exception $e) {
             Log::error('❌ Order email failed', ['error' => $e->getMessage()]);
             return back()->withErrors(['mail' => 'Erreur lors de l’envoi du mail : ' . $e->getMessage()]);
         }
 
-        // ✅ Vider le panier après succès
         session()->forget('cart');
 
-        return redirect()
-            ->route('frontoffice.home')
+        return redirect()->route('frontoffice.home')
             ->with('success', 'Votre commande a été enregistrée avec succès ✅');
     }
 }

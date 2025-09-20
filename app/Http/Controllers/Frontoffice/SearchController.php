@@ -16,7 +16,7 @@ class SearchController extends Controller
         $products = Product::with('media')
             ->when($query, function ($q) use ($query) {
                 $q->where('title', 'like', "%{$query}%")
-                  ->orWhere('description', 'like', "%{$query}%");
+                    ->orWhere('description', 'like', "%{$query}%");
             })
             ->paginate(12);
 
@@ -24,5 +24,29 @@ class SearchController extends Controller
         $categories = ProductCategory::with('children')->whereNull('parent_id')->get();
 
         return view('frontoffice.search.index', compact('products', 'query', 'categories'));
+    }
+
+    public function ajax(Request $request)
+    {
+        $query = $request->input('q');
+
+        $products = Product::with('media')
+            ->when($query, function ($q) use ($query) {
+                $q->where('title', 'like', "%{$query}%")
+                    ->orWhere('description', 'like', "%{$query}%");
+            })
+            ->take(6)
+            ->get()
+            ->map(function ($product) {
+                return [
+                    'id' => $product->id,
+                    'title' => $product->title,
+                    'slug' => $product->slug,
+                    'price' => $product->price,
+                    'main_image_url' => $product->getFirstMediaUrl('main_image') ?: asset('assets/img/products/default.jpg'),
+                ];
+            });
+
+        return response()->json($products);
     }
 }

@@ -12,17 +12,18 @@ use App\Models\BlogPost;
 
 class HomeController extends Controller
 {
+
     public function index(Request $request)
     {
         $sessionId = $request->session()->getId();
 
-        // Derniers produits (section nouveauté)
+        // Derniers produits
         $products = Product::latest()
             ->with(['media', 'characteristics'])
             ->take(12)
             ->get();
 
-        // Meilleures offres de la semaine (avec ancien prix)
+        // Meilleures offres
         $bestDeals = Product::whereNotNull('old_price')
             ->whereColumn('old_price', '>', 'price')
             ->with(['media', 'characteristics'])
@@ -30,35 +31,45 @@ class HomeController extends Controller
             ->take(10)
             ->get();
 
-        // Top 5 produits par catégorie
-        $categories = ProductCategory::with(['products' => function ($query) {
-            $query->with(['media', 'characteristics'])
-                ->inRandomOrder()
-                ->take(5);
-        }])->get();
+        // Categories parents avec produits de leurs sous-catégories
+        $categories = ProductCategory::whereNull('parent_id')
+            ->where('is_active', true)
+            ->with(['children.products' => function ($query) {
+                $query->where('is_published', true)
+                    ->with(['media', 'characteristics']);
+            }])
+            ->get();
+
+        // Merge products from subcategories into parent categories
+        foreach ($categories as $category) {
+            $allProducts = collect();
+            foreach ($category->children as $child) {
+                $allProducts = $allProducts->merge($child->products);
+            }
+            // Optional: limit to 5 products per parent category
+            $category->products = $allProducts->take(5);
+        }
 
         // Produits en vedette
-        $featuredProducts = Product::with(['media', 'characteristics'])
+        $featuredProducts = Product::where('is_published', true)
+            ->where('is_hot', true)
+            ->with(['media', 'characteristics'])
             ->inRandomOrder()
             ->take(6)
             ->get();
 
         // Produits pour la section "Nos collections"
-        $collectionProducts = Product::with(['media', 'characteristics'])
+        $collectionProducts = Product::where('is_published', true)
+            ->with(['media', 'characteristics'])
             ->inRandomOrder()
             ->take(8)
             ->get();
 
-        // Panier dynamique via session
-        $cartItems = CartItem::with('product.media')
-            ->where('session_id', $sessionId)
-            ->get();
+        // Panier et wishlist
+        $cartItems = CartItem::with('product.media')->where('session_id', $sessionId)->get();
+        $wishlistItems = Wishlist::with('product.media')->where('session_id', $sessionId)->get();
 
-        // Wishlist dynamique via session
-        $wishlistItems = Wishlist::with('product.media')
-            ->where('session_id', $sessionId)
-            ->get();
-
+        // Latest blog posts
         $latestPosts = BlogPost::with('tags')
             ->where('is_published', true)
             ->orderByDesc('published_at')
@@ -77,6 +88,7 @@ class HomeController extends Controller
         ));
     }
 
+
     public function quickview($id)
     {
         $product = Product::with(['media', 'characteristics', 'tags'])->findOrFail($id);
@@ -93,7 +105,6 @@ class HomeController extends Controller
                 'value' => $c->value
             ]),
             'main_image' => $product->getFirstMediaUrl('main_image') ?: asset('img/default-product.jpg'),
-            // ✅ Prendre max 5 images de la galerie
             'gallery' => $product->getMedia('gallery')->take(5)->map(fn($m) => $m->getUrl()),
             'is_hot' => $product->is_hot,
             'is_occasion' => $product->is_occasion,
@@ -114,7 +125,6 @@ class HomeController extends Controller
                     'slug' => $product->slug,
                     'title' => $product->title,
                     'price' => $product->price,
-                    // ✅ Utilise Spatie Media Library + fallback
                     'main_image_url' => $product->getFirstMediaUrl('main_image')
                         ?: asset('assets/img/products/default.jpg'),
                 ];
