@@ -439,27 +439,48 @@
         })
     }
 
-    function slidePriceWidget() {
-        var rangeSlider = document.getElementById('slide-price');
-        if (rangeSlider) {
-            var input0 = document.getElementById('slide-price-min');
-            var input1 = document.getElementById('slide-price-max');
-            var inputs = [input0, input1];
-            noUiSlider.create(rangeSlider, {
-                start: [0, 820],
-                connect: true,
-                step: 1,
-                range: {
-                    min: [1],
-                    max: [1000]
-                }
-            });
+   function slidePriceWidget() {
+    var rangeSlider = document.getElementById('slide-price');
 
-            rangeSlider.noUiSlider.on("update", function(values, handle) {
-                inputs[handle].textContent  = '$' + values[handle];
-            });
-        }
+    if (rangeSlider) {
+        var displayMin = document.getElementById('slide-price-min');
+        var displayMax = document.getElementById('slide-price-max');
+        var inputMin = document.getElementById('prix_min');
+        var inputMax = document.getElementById('prix_max');
+
+        var startMin = parseInt(inputMin.value) || 0;
+        var startMax = parseInt(inputMax.value) || 820;
+
+        noUiSlider.create(rangeSlider, {
+            start: [startMin, startMax],
+            connect: true,
+            step: 1,
+            range: {
+                min: [0],
+                max: [10000]
+            },
+            format: {
+                to: function (value) {
+                    return Math.round(value);
+                },
+                from: function (value) {
+                    return Number(value);
+                }
+            }
+        });
+
+        rangeSlider.noUiSlider.on("update", function (values, handle) {
+            const value = values[handle];
+            if (handle === 0) {
+                displayMin.textContent = 'MAD ' + value;
+                inputMin.value = value;
+            } else {
+                displayMax.textContent = 'MAD ' + value;
+                inputMax.value = value;
+            }
+        });
     }
+}
 
     function lightgalleryVideos() {
         $('#ps-video-gallery').lightGallery();
