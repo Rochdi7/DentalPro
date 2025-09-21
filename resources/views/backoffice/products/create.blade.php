@@ -111,7 +111,7 @@
                         <h5>Tags</h5>
                     </div>
                     <div class="card-body">
-                        <select name="tags[]" class="form-select" multiple id="tags-select">
+                        <select name="tags[]" id="tags-select" class="form-select" multiple>
                             @foreach ($tags as $tag)
                                 <option value="{{ $tag->id }}" @selected(collect(old('tags'))->contains($tag->id))>
                                     {{ $tag->name }}
@@ -120,6 +120,7 @@
                         </select>
                     </div>
                 </div>
+
 
                 {{-- Image principale --}}
                 <div class="card">
@@ -186,14 +187,37 @@
             .catch(error => {
                 console.error(error);
             });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fonction générique d'initialisation
+            function initChoices(selector, options = {}) {
+                const el = document.querySelector(selector);
+                if (el) {
+                    new Choices(el, Object.assign({
+                        searchPlaceholderValue: 'Rechercher...',
+                        noResultsText: 'Aucun résultat trouvé',
+                        noChoicesText: 'Aucun choix disponible',
+                        itemSelectText: 'Cliquer pour sélectionner'
+                    }, options));
+                }
+            }
+
+            // Initialiser chaque select
+            initChoices('#parent_category'); // Catégorie principale
+            initChoices('#child_category'); // Sous-catégorie
+            initChoices('#tags-select', {
+                removeItemButton: true
+            }); // Tags (multi)
+        });
     </script>
 
     @include('backoffice.products.partials._attributes_modal_script')
+
 @endsection
 
 <style>
     .ck-editor__editable_inline {
-    min-height: 350px; /* ajuste la hauteur selon ton besoin */
-}
-
+        min-height: 350px;
+        /* ajuste la hauteur selon ton besoin */
+    }
 </style>
