@@ -36,9 +36,12 @@
 
 {{-- 💳 Paiement --}}
 <p><strong>Méthode de paiement :</strong> 
-    @if($orderData['payment'] === 'cod')
+    @if(!empty($orderData['payment']) && $orderData['payment'] === 'cod')
         Paiement à la livraison
-    @else
+    @elseif(!empty($orderData['payment']))
         {{ ucfirst($orderData['payment']) }}
+    @else
+        Non spécifiée
     @endif
 </p>
+
