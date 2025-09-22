@@ -22,10 +22,13 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = ProductCategory::with('children')->whereNull('parent_id')->get();
+        $parents = ProductCategory::whereNull('parent_id')->get();
+
+        $children = ProductCategory::whereNotNull('parent_id')->get();
+
         $tags = ProductTag::orderBy('name')->get();
 
-        return view('backoffice.products.create', compact('categories', 'tags'));
+        return view('backoffice.products.create', compact('parents', 'children', 'tags'));
     }
 
     public function store(ProductRequest $request)
