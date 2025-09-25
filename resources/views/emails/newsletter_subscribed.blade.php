@@ -15,7 +15,7 @@
 
         <p>Bonjour,</p>
         <p>Merci de vous être inscrit(e) à la newsletter <strong>DentalPro</strong>.</p>
-        <p>En cadeau de bienvenue, vous bénéficiez de <strong>100 MAD de réduction</strong> sur votre première commande.</p>
+        <p>En cadeau de bienvenue, vous bénéficiez de <strong>30 DH de réduction</strong> sur votre première commande, valable pour tout achat de **300 DH ou plus**.</p>
 
         <div style="text-align: center; margin: 30px 0;">
             <a href="{{ route('products.index') }}" 
