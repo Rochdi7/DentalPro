@@ -200,9 +200,9 @@
                             @endif
 
                             {{-- 📌 Bannière promo --}}
-                            <div class="ps-widget--promo">
+                            {{-- <div class="ps-widget--promo">
                                 <img src="{{ asset('assets/img/banner-sidebar1.jpg') }}" alt="Promotion">
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
