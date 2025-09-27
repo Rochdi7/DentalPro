@@ -3,13 +3,13 @@
     <hr class="mb-3 mt-4" />
     <div class="row">
       <div class="col my-1">
-        <p class="m-0">Fait avec ♥ par l'équipe <a href="https://themeforest.net/user/CodeSommet" target="_blank"> CodeSommet</a></p>
+        <p class="m-0">Fait avec ♥ par l'équipe <a href="https://www.facebook.com/profile.php?id=61579228255201" target="_blank"> CodeSommet</a></p>
       </div>
       <div class="col-auto my-1">
         <ul class="list-inline footer-link mb-0">
-          <li class="list-inline-item"><a href="/index">Accueil</a></li>
-          <li class="list-inline-item"><a href="https://www.facebook.com/CodeSommet/" target="_blank">Documentation</a></li>
-          <li class="list-inline-item"><a href="https://www.facebook.com/CodeSommet/" target="_blank">Support</a></li>
+          <li class="list-inline-item"><a href="{{asset('/')}}">Accueil</a></li>
+          <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=61579228255201" target="_blank">Documentation</a></li>
+          <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=61579228255201" target="_blank">Support</a></li>
         </ul>
       </div>
     </div>

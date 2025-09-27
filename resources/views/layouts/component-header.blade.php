@@ -18,7 +18,7 @@
                     <a class="nav-link" href="{{ url('elements/bc_alert') }}">Components</a>
                 </li>
                 <li class="nav-item px-1">
-                    <a class="nav-link" href="https://www.facebook.com/CodeSommet/" target="_blank">Documentation</a>
+                    <a class="nav-link" href="https://www.facebook.com/profile.php?id=61579228255201" target="_blank">Documentation</a>
                 </li>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0 align-items-start">

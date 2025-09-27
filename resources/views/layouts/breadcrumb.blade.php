@@ -3,8 +3,11 @@
         <div class="row align-items-center">
             <div class="col-md-12">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Accueil</a></li>
+                   
+                    <li class="breadcrumb-item"><a href="{{ route('backoffice.dashboard') }}">Accueil</a></li>
+                    
                     <li class="breadcrumb-item"><a href="javascript: void(0)">@yield('breadcrumb-item')</a></li>
+                    
                     <li class="breadcrumb-item" aria-current="page">@yield('breadcrumb-item-active')</li>
                 </ul>
             </div>
