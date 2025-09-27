@@ -109,7 +109,8 @@
 
             <section class="ps-about__project">
                 <div class="container">
-                    <h2 class="ps-about__title">DentalPro, votre fournisseur local basé à Marrakech</h2>
+                    <h2 class="ps-about__title">Dentalpro, votre assistance technique et commerciale pour les
+                        meilleurs résultats.</h2>
 
                     {{-- Bloc 1 --}}
                     <section class="ps-section--block-grid">
@@ -120,67 +121,104 @@
                             </a>
                         </div>
                         <div class="ps-section__content">
-                            <h3 class="ps-section__title">Produits certifiés et fournisseurs de confiance</h3>
-                            <div class="ps-section__subtitle">Certifications reconnues (CEE, ISO, etc.)</div>
+                            <h3 class="ps-section__title">DentalPro : Votre Partenaire de Confiance en Fournitures Dentaires
+                            </h3>
+                            {{-- <div class="ps-section__subtitle">Certifications reconnues (CEE, ISO, etc.)</div> --}}
                             <div class="ps-section__desc">
-                                DentalPro vous propose des produits de qualité à des prix compétitifs.
-                                Que vous soyez un cabinet dentaire ou une clinique, nous avons les équipements qu’il vous
-                                faut.
-                                Notre objectif : fiabilité, innovation et accessibilité.
+                                Chez DentalPro, nous sommes votre partenaire de confiance en fournitures dentaires.
+                                Nous sélectionnons rigoureusement une gamme exhaustive de produits pour leur qualité
+                                irréprochable,
+                                leur fiabilité absolue et leur conformité aux normes les plus strictes.
+                                Que ce soit pour des consommables, des instruments de précision ou du matériel de
+                                stérilisation,
+                                nous vous garantissons des performances optimales issues de marques reconnues.
+                                Grâce à notre disponibilité immédiate et une livraison express,
+                                votre pratique clinique bénéficie d'une continuité de service sans interruption.
                             </div>
                             <ul class="ps-section__list">
                                 <li>Livraison rapide au Maroc</li>
                                 <li>Support client local à Marrakech</li>
-                                <li>Produits certifiés CEE</li>
                             </ul>
                         </div>
+
                     </section>
 
                     {{-- Bloc 2 --}}
                     <section class="ps-section--block-grid row-reverse">
                         <div class="ps-section__thumbnail">
                             <a class="ps-section__image" href="#">
-                                <img src="{{ asset('assets/img/aboutus/maintenance.webp') }}" alt="Confiance et expérience">
+                                <img src="{{ asset('assets/img/aboutus/maintenance.webp') }}"
+                                    alt="Contrats de maintenance DentalPro - tranquillité et fiabilité">
                             </a>
                         </div>
                         <div class="ps-section__content">
-                            <h3 class="ps-section__title">Une expertise locale reconnue par les professionnels</h3>
-                            <div class="ps-section__subtitle">Des centaines de clients satisfaits au Maroc</div>
+                            <h3 class="ps-section__title">
+                                Vos problèmes sont notre passion
+                            </h3>
+                            <div class="ps-section__subtitle">
+                                Chez DentalPro, votre tranquillité d'esprit est notre priorité.
+                                Nous proposons des contrats de maintenance préventive sur mesure pour votre équipement
+                                dentaire.
+                            </div>
                             <div class="ps-section__desc">
-                                Grâce à notre proximité et notre réactivité, DentalPro est devenu un acteur incontournable
-                                dans le domaine de l’équipement dentaire à Marrakech.
-                                Nous connaissons vos besoins et adaptons nos offres en conséquence.
+                                Notre objectif ? Maximiser la durée de vie de vos équipements et minimiser les temps
+                                d'arrêt,
+                                pour que vous puissiez vous concentrer entièrement sur vos patients.
                             </div>
                             <ul class="ps-section__list">
-                                <li>Conseils personnalisés</li>
-                                <li>Équipe disponible 7j/7</li>
-                                <li>Garantie de satisfaction</li>
+                                <li>Interventions rapides par des techniciens experts</li>
+                                <li>Utilisation exclusive de pièces détachées d'origine</li>
+                                <li>Suivi personnalisé et assistance à distance</li>
                             </ul>
+
+                            <p>
+                                <strong style="color: rgb(253, 141, 39)">
+                                    <a href="/contact" style="color: inherit; text-decoration: none;">
+                                        Demandez votre devis gratuit maintenant !
+                                    </a>
+                                </strong>
+                            </p>
+
                         </div>
                     </section>
+
 
                     {{-- Bloc 3 --}}
                     <section class="ps-section--block-grid">
                         <div class="ps-section__thumbnail">
                             <a class="ps-section__image" href="#">
-                                <img src="{{ asset('assets/img/aboutus/businessman-talking-phone.webp') }}"
-                                    alt="Matériel fiable">
+                                <img src="{{ asset('assets/img/aboutus/support.webp') }}"
+                                    alt="Étude technique et préinstallation">
                             </a>
                         </div>
                         <div class="ps-section__content">
-                            <h3 class="ps-section__title">Des outils fiables pour une pratique quotidienne sans stress</h3>
-                            <div class="ps-section__subtitle">Un service après-vente à votre écoute</div>
+                            <h3 class="ps-section__title">
+                                Étude technique et préinstallation
+                            </h3>
+                            <div class="ps-section__subtitle">
+                                Notre équipe experte prend en charge la création complète de votre clinique dentaire :
+                                de la conception technique 3D à l'installation clé en main.
+                            </div>
                             <div class="ps-section__desc">
-                                Nous sélectionnons nos produits pour leur performance, leur durabilité et leur sécurité.
-                                Avec DentalPro, vous bénéficiez d’un accompagnement complet avant et après votre achat.
+                                Gagnez du temps, concentrez-vous sur votre pratique.
+                                Nous réalisons votre projet. Obtenez un devis personnalisé gratuit.
                             </div>
                             <ul class="ps-section__list">
-                                <li>Installation possible sur demande</li>
-                                <li>Support WhatsApp direct</li>
-                                <li>Documentation technique disponible</li>
+                                <li>Design ergonomique et fonctionnel</li>
+                                <li>Respect total des normes d'hygiène</li>
+                                <li>Gestion de projet sur mesure</li>
+                                <li>Livraison dans les délais convenus</li>
                             </ul>
+                            <p>
+                                <strong style="color: rgb(253, 141, 39)">
+                                    <a href="/contact" style="color: inherit; text-decoration: none;">
+                                        Obtenez votre devis gratuit maintenant !
+                                    </a>
+                                </strong>
+                            </p>
                         </div>
                     </section>
+
                 </div>
             </section>
 
