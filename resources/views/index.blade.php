@@ -20,82 +20,98 @@
                             <div class="container container-initial">
                                 <div class="ps-banner__block">
                                     <div class="ps-banner__content">
-                                        <h2 class="ps-banner__title">Kit de <br /> Blanchiment Candid</h2>
-                                        <div class="ps-banner__desc">Offre exclusive cette semaine chez DentalPro !</div>
-                                        <div class="ps-banner__price">
-                                            <span>159 MAD</span>
-                                            <del>299 MAD</del>
+                                        <h2 class="ps-banner__title" style="font-size: 44px">
+                                            Avec Beyond, le blanchiment crée une expérience patient inoubliable.
+                                        </h2>
+                                        <div class="ps-banner__desc">
+                                            Offre exclusive cette semaine chez DentalPro !
                                         </div>
+                                        {{-- <div class="ps-banner__price">
+                                            <span>159 MAD</span>
+                                            <del>299 MAD</del>
+                                        </div> --}}
                                         <a class="bg-warning ps-banner__shop" href="#">Acheter maintenant</a>
                                         <div class="ps-banner__persen bg-warning ps-center">-30%</div>
                                     </div>
                                     <div class="ps-banner__thumnail">
                                         <img class="ps-banner__round" src="{{ asset('assets/img/round2.png') }}"
-                                            alt="fond rond" />
-                                        <img class="ps-banner__image" src="{{ asset('assets/img/ads/test.png') }}"
-                                            alt="kit blanchiment" />
-
+                                            alt="fond rond design" />
+                                        <img class="ps-banner__image" src="{{ asset('assets/img/ads/slide1.webp') }}"
+                                            alt="Blanchiment Beyond - expérience patient inoubliable" />
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="ps-banner" style="background:#F0F2F5;">
                             <div class="container container-initial">
                                 <div class="ps-banner__block">
                                     <div class="ps-banner__content">
-                                        <h2 class="ps-banner__title">Masque médical<br /> antibactérien</h2>
-                                        <div class="ps-banner__desc">Protégez-vous et votre cabinet en quelques secondes.
+                                        <h2 class="ps-banner__title" style="font-size: 44px">
+                                            Qualité légendaire, fonctionnement silencieux, <br /> stabilité absolue. <br />
+                                            Découvrez le Belmont.
+                                        </h2>
+                                        <div class="ps-banner__desc">
+                                            Une référence incontournable pour votre cabinet dentaire.
                                         </div>
                                         <div class="ps-banner__btn-group">
                                             <div class="ps-banner__btn">
                                                 <img src="{{ asset('assets/img/icon3.png') }}"
-                                                    alt="Anti-bactérien" />Antibactérien
+                                                    alt="Confort et stabilité" />Confort
                                             </div>
                                             <div class="ps-banner__btn">
-                                                <img src="{{ asset('assets/img/icon4.png') }}" alt="Anti-virus" />Antivirus
+                                                <img src="{{ asset('assets/img/icon4.png') }}"
+                                                    alt="Silencieux et fiable" />Silencieux
                                             </div>
                                         </div>
-                                        <a class="bg-warning ps-banner__shop" href="#">Acheter maintenant</a>
-                                        <div class="ps-banner__persen bg-yellow ps-top"><small>seulement</small>25 MAD</div>
+                                        <a class="bg-warning ps-banner__shop" href="#">Découvrir maintenant</a>
+                                        {{-- <div class="ps-banner__persen bg-yellow ps-top"><small>Exclusif</small> DentalPro
+                                        </div> --}}
                                     </div>
                                     <div class="ps-banner__thumnail">
                                         <img class="ps-banner__round" src="{{ asset('assets/img/round5.png') }}"
-                                            alt="fond rond" />
-                                        <img class="ps-banner__image"
-                                            src="{{ asset('assets/img/ads/slide22 (2) (1).png') }}" alt="masque médical" />
+                                            alt="fond rond design" />
+                                        <img class="ps-banner__image" src="{{ asset('assets/img/ads/slide2.webp') }}"
+                                            alt="Fauteuil dentaire Belmont - qualité légendaire et silencieuse" />
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="ps-banner" style="background:#FFCC00;">
                             <div class="container container-initial">
                                 <div class="ps-banner__block">
                                     <div class="ps-banner__content">
-                                        <h2 class="ps-banner__title">Éliminez les bactéries <br />de votre cabinet</h2>
-                                        <div class="ps-banner__desc">Assurez un environnement sain pour vos patients !</div>
+                                        <h2 class="ps-banner__title">
+                                            Les pièces de votre cabinet ? <br /> Toutes sont ici.
+                                        </h2>
+                                        <div class="ps-banner__desc">
+                                            Assurez un environnement sain pour vos patients !
+                                        </div>
                                         <div class="ps-banner__btn-group">
                                             <div class="ps-banner__btn">
                                                 <img src="{{ asset('assets/img/icon3.png') }}"
-                                                    alt="Anti-bactérien" />Antibactérien
+                                                    alt="Pièces fiables et durables" />Qualité
                                             </div>
                                             <div class="ps-banner__btn">
-                                                <img src="{{ asset('assets/img/icon4.png') }}" alt="Anti-virus" />Antivirus
+                                                <img src="{{ asset('assets/img/icon4.png') }}"
+                                                    alt="Accessoires pour cabinet dentaire" />Accessoires
                                             </div>
                                         </div>
-                                        <a class="bg-white ps-banner__shop" href="#">Acheter maintenant</a>
-                                        <div class="ps-banner__persen bg-primary">-25%</div>
+                                        <a class="bg-white ps-banner__shop" href="#">Découvrir maintenant</a>
+                                        {{-- <div class="ps-banner__persen bg-primary">-25%</div> --}}
                                     </div>
                                     <div class="ps-banner__thumnail">
                                         <img class="ps-banner__round" src="{{ asset('assets/img/round2.png') }}"
-                                            alt="fond rond" />
-                                        <img class="ps-banner__image"
-                                            src="{{ asset('assets/img/ads/Copie de Sans titre (1).png') }}"
-                                            alt="bactéries cabinet" />
+                                            alt="fond rond design" />
+                                        <img class="ps-banner__image" src="{{ asset('assets/img/ads/slide3.webp') }}"
+                                            alt="pièces de cabinet dentaire" />
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
@@ -108,12 +124,12 @@
                             <div class="row">
                                 <div class="col-12 col-md-4">
                                     <div class="ps-promo__item">
-                                        <img class="ps-promo__banner"
-                                            src="{{ asset('assets/img/ads/Copie de Sans titre (2).png') }}"
+                                        <img class="ps-promo__banner" src="{{ asset('assets/img/ads/bg-banner1.webp') }}"
                                             alt="Tableau dentaire" />
                                         <div class="ps-promo__content">
                                             <span class="ps-promo__badge">Nouveau</span>
-                                            <h4 class="mb-20 ps-promo__name">Une touche <br> d'art pour  <br>votre cabinet</h4>
+                                            <h4 class="mb-20 ps-promo__name">Une touche <br> d'art pour <br>votre cabinet
+                                            </h4>
                                             <a class="ps-promo__btn" href="category-grid.html">Découvrir</a>
                                         </div>
                                     </div>
@@ -121,8 +137,7 @@
 
                                 <div class="col-12 col-md-4">
                                     <div class="ps-promo__item">
-                                        <img class="ps-promo__banner"
-                                            src="{{ asset('assets/img/ads/Design sans titre (5).png') }}"
+                                        <img class="ps-promo__banner" src="{{ asset('assets/img/ads/bg-banner2.webp') }}"
                                             alt="T-shirt dentiste" />
                                         <div class="ps-promo__content">
                                             <h4 class="ps-promo__name">Portez votre <br> passion </h4>
@@ -134,11 +149,11 @@
 
                                 <div class="col-12 col-md-4">
                                     <div class="ps-promo__item">
-                                        <img class="ps-promo__banner"
-                                            src="{{ asset('assets/img/ads/Copie de Copie de Sans titre.png') }}"
+                                        <img class="ps-promo__banner" src="{{ asset('assets/img/ads/bg-banner3.webp') }}"
                                             alt="Tasse autocollant" />
                                         <div class="ps-promo__content">
-                                            <span class="ps-promo__badge" style="background-color: red">forte demande</span>
+                                            <span class="ps-promo__badge" style="background-color: red">forte
+                                                demande</span>
                                             <h4 class="text-white ps-promo__name">Personnalisez <br>votre quotidien
                                             </h4>
                                             <div class="ps-promo__meta">
@@ -161,17 +176,17 @@
                         <div class="ps-category--block">
                             <div class="ps-category__thumbnail">
                                 <a class="ps-category__image" href="category-grid.html">
-                                    <img src="{{ asset('assets/img/ads/Design sans titre (6).png') }}" alt>
+                                    <img src="{{ asset('assets/img/ads') }}" alt>
                                 </a>
                                 <div class="ps-category__content">
-                                    <a class="ps-category__name" href="category-grid.html">Instruments</a>
+                                    <a class="ps-category__name" href="category-grid.html">Rotatifs</a>
                                     <a class="ps-category__more" href="category-grid.html">Voir plus</a>
                                 </div>
                             </div>
 
                             <div class="ps-category__thumbnail">
                                 <a class="ps-category__image" href="category-grid.html">
-                                    <img src="{{ asset('assets/img/ads/Design sans titre (7).png') }}" alt>
+                                    <img src="{{ asset('assets/img/ads/categorie2.webp') }}" alt>
                                 </a>
                                 <div class="ps-category__content">
                                     <a class="ps-category__name" href="category-grid.html">Fauteuil dentaire</a>
@@ -181,7 +196,7 @@
 
                             <div class="ps-category__thumbnail">
                                 <a class="ps-category__image" href="category-grid.html">
-                                    <img src="{{ asset('assets/img/ads/Design sans titre (8).png') }}" alt>
+                                    <img src="{{ asset('assets/img/ads/categorie3.webp') }}" alt>
                                 </a>
                                 <div class="ps-category__content">
                                     <a class="ps-category__name" href="category-grid.html">Prothèse dentaire</a>
@@ -191,7 +206,7 @@
 
                             <div class="ps-category__thumbnail">
                                 <a class="ps-category__image" href="category-grid.html">
-                                    <img src="{{ asset('assets/img/ads/Design sans titre (9).png') }}" alt>
+                                    <img src="{{ asset('assets/img/ads/categorie4.webp') }}" alt>
                                 </a>
                                 <div class="ps-category__content">
                                     <a class="ps-category__name" href="category-grid.html">Stérilisation</a>
@@ -201,7 +216,7 @@
 
                             <div class="ps-category__thumbnail">
                                 <a class="ps-category__image" href="category-grid.html">
-                                    <img src="{{ asset('assets/img/ads/Design sans titre (10).png') }}" alt>
+                                    <img src="{{ asset('assets/img/ads/categorie5.webp') }}" alt>
                                 </a>
                                 <div class="ps-category__content">
                                     <a class="ps-category__name" href="category-grid.html">X-ray</a>
@@ -421,7 +436,7 @@
                 </section>
 
                 <div class="container">
-                    <div class="ps-delivery" data-background="{{ asset('assets/img/ads/banner-delivery-2.jpg') }}">
+                    <div class="ps-delivery" data-background="{{ asset('assets/img/ads/banner-delivery-2.webp') }}">
                         <div class="ps-delivery__content">
                             <div class="ps-delivery__text">
                                 <i class="icon-shield-check"></i>
@@ -761,25 +776,30 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="ps-promo__item">
-                                    <img class="ps-promo__banner" src="{{ asset('assets/img/ads/Design sans titre (11).png') }}"
+                                    <img class="ps-promo__banner" src="{{ asset('assets/img/ads/bg-banner4.webp') }}"
                                         alt="alt" />
                                     <div class="ps-promo__content">
                                         <span class="ps-promo__badge">Nouveau</span>
-                                        <h4 class="mb-20 ps-promo__name">Éliminez les bactéries<br />de votre cabinet
+                                        <h4 class="mb-20 ps-promo__name">
+                                            Stérilisez en toute confiance
                                         </h4>
                                         <a class="ps-promo__btn" href="category-grid.html">Découvrir</a>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="ps-promo__item">
-                                    <img class="ps-promo__banner" src="{{ asset('assets/img/ads/bg-banner5.jpg') }}"
-                                        alt="alt" />
+                                    <img class="ps-promo__banner" src="{{ asset('assets/img/ads/bg-banner5.webp') }}"
+                                        alt="Promotion sur la maintenance des équipements dentaires" />
                                     <div class="ps-promo__content">
-                                        <h4 class="ps-promo__name">Kit de blanchiment<br />Candid</h4>
+                                        <h4 class="ps-promo__name" style="color: white">
+                                            Bénéficiez d'un diagnostic gratuit
+                                        </h4>
                                         <div class="ps-promo__sale">-10%</div>
-                                        <a class="ps-promo__btn" href="category-grid.html">Acheter maintenant</a>
+                                        <a class="ps-promo__btn" href="category-grid.html">En savoir plus</a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -1040,31 +1060,31 @@
                                 </div>
                                 <div class="col-6 col-md-4 col-lg-2">
                                     <a class="ps-image--transition" href="https://www.instagram.com/zs.dentaire/">
-                                        <img src="{{ asset('assets/img/ig/2.webp') }}" alt>
+                                        <img src="{{ asset('assets/img/ig/ig2.webp') }}" alt>
                                         <span class="ps-image__overlay"><i class="fa fa-instagram"></i></span>
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-4 col-lg-2">
                                     <a class="ps-image--transition" href="https://www.instagram.com/zs.dentaire/">
-                                        <img src="{{ asset('assets/img/ig/3.webp') }}" alt>
+                                        <img src="{{ asset('assets/img/ig/ig3.webp') }}" alt>
                                         <span class="ps-image__overlay"><i class="fa fa-instagram"></i></span>
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-4 col-lg-2">
                                     <a class="ps-image--transition" href="https://www.instagram.com/zs.dentaire/">
-                                        <img src="{{ asset('assets/img/ig/4.webp') }}" alt>
+                                        <img src="{{ asset('assets/img/ig/ig4.webp') }}" alt>
                                         <span class="ps-image__overlay"><i class="fa fa-instagram"></i></span>
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-4 col-lg-2">
                                     <a class="ps-image--transition" href="https://www.instagram.com/zs.dentaire/">
-                                        <img src="{{ asset('assets/img/ig/5.webp') }}" alt>
+                                        <img src="{{ asset('assets/img/ig/ig5.webp') }}" alt>
                                         <span class="ps-image__overlay"><i class="fa fa-instagram"></i></span>
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-4 col-lg-2">
                                     <a class="ps-image--transition" href="https://www.instagram.com/zs.dentaire/">
-                                        <img src="{{ asset('assets/img/ig/6.webp') }}" alt>
+                                        <img src="{{ asset('assets/img/ig/ig6.webp') }}" alt>
                                         <span class="ps-image__overlay"><i class="fa fa-instagram"></i></span>
                                     </a>
                                 </div>
