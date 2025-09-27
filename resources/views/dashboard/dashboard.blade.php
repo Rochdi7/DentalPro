@@ -9,13 +9,16 @@
 @endsection
 
 @section('content')
-<!-- [ Cartes KPI stylées ] -->
 <div class="row">
     {{-- ✅ Produits --}}
     <div class="col-md-4 col-sm-6">
         <div class="card statistics-card-1 overflow-hidden">
             <div class="card-body">
-                <img src="{{ asset('build/images/widget/img-status-4.svg') }}" alt="img" class="img-fluid img-bg" />
+                {{-- Icône pour Produits: 'Shopping-Bag' ou 'Box' --}}
+                <div class="float-end">
+                    <i data-feather="box" class="text-brand-color-3" style="font-size: 2rem;"></i>
+                </div>
+                {{-- <img src="{{ asset('build/images/widget/img-status-4.svg') }}" alt="img" class="img-fluid img-bg" /> --}}
                 <h5 class="mb-4">Produits</h5>
                 <div class="d-flex align-items-center mt-3">
                     <h3 class="f-w-300 d-flex align-items-center m-b-0">{{ $stats['totalProducts'] }}</h3>
@@ -34,7 +37,11 @@
     <div class="col-md-4 col-sm-6">
         <div class="card statistics-card-1 overflow-hidden">
             <div class="card-body">
-                <img src="{{ asset('build/images/widget/img-status-5.svg') }}" alt="img" class="img-fluid img-bg" />
+                {{-- Icône pour Catégories: 'Tag' ou 'List' --}}
+                <div class="float-end">
+                    <i data-feather="tags" class="text-brand-color-3" style="font-size: 2rem;"></i>
+                </div>
+                {{-- <img src="{{ asset('build/images/widget/img-status-5.svg') }}" alt="img" class="img-fluid img-bg" /> --}}
                 <h5 class="mb-4">Catégories Produits</h5>
                 <div class="d-flex align-items-center mt-3">
                     <h3 class="f-w-300 d-flex align-items-center m-b-0">{{ $stats['totalCategories'] }}</h3>
@@ -53,7 +60,11 @@
     <div class="col-md-4 col-sm-12">
         <div class="card statistics-card-1 overflow-hidden bg-brand-color-3">
             <div class="card-body">
-                <img src="{{ asset('build/images/widget/img-status-6.svg') }}" alt="img" class="img-fluid img-bg" />
+                {{-- Icône pour Articles: 'File-Text' ou 'Book-Open' --}}
+                <div class="float-end">
+                    <i data-feather="file-text" class="text-white" style="font-size: 2rem;"></i>
+                </div>
+                {{-- <img src="{{ asset('build/images/widget/img-status-6.svg') }}" alt="img" class="img-fluid img-bg" /> --}}
                 <h5 class="mb-4 text-white">Articles de blog</h5>
                 <div class="d-flex align-items-center mt-3">
                     <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">{{ $stats['totalPosts'] }}</h3>
@@ -68,11 +79,13 @@
     </div>
 </div>
 
-<!-- [ Activité récente ] -->
+<hr>
+
 <div class="row mt-4">
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">🛍️ Derniers Produits</div>
+            {{-- Icône pour Derniers Produits: 'Shopping-Cart' --}}
+            <div class="card-header"><i data-feather="shopping-cart" class="me-2"></i> Derniers Produits</div>
             <ul class="list-group list-group-flush">
                 @foreach($recentProducts as $p)
                     <li class="list-group-item">
@@ -85,7 +98,8 @@
     </div>
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">📰 Derniers Articles</div>
+            {{-- Icône pour Derniers Articles: 'Rss' ou 'Edit' --}}
+            <div class="card-header"><i data-feather="rss" class="me-2"></i> Derniers Articles</div>
             <ul class="list-group list-group-flush">
                 @foreach($recentPosts as $post)
                     <li class="list-group-item">
@@ -98,31 +112,37 @@
     </div>
 </div>
 
-<!-- [ Graphiques ] -->
+<hr>
+
 <div class="row mt-4">
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">📈 Produits par mois</div>
+            {{-- Icône pour Produits par mois: 'Trending-Up' --}}
+            <div class="card-header"><i data-feather="trending-up" class="me-2"></i> Produits par mois</div>
             <div id="chart-products-month"></div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">✍️ Articles par mois</div>
+            {{-- Icône pour Articles par mois: 'Activity' --}}
+            <div class="card-header"><i data-feather="activity" class="me-2"></i> Articles par mois</div>
             <div id="chart-posts-month"></div>
         </div>
     </div>
 </div>
+
 <div class="row mt-4">
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">📦 Produits par catégorie</div>
+            {{-- Icône pour Produits par catégorie: 'Pie-Chart' --}}
+            <div class="card-header"><i data-feather="pie-chart" class="me-2"></i> Produits par catégorie</div>
             <div id="chart-products-category"></div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">🔥 Hot / 🎁 Occasion / 🛒 Normal</div>
+            {{-- Icône pour Comparaison: 'Target' --}}
+            <div class="card-header"><i data-feather="target" class="me-2"></i> Hot / Occasion / Normal</div>
             <div id="chart-products-comparison"></div>
         </div>
     </div>
@@ -132,6 +152,12 @@
 @section('scripts')
 <script src="{{ URL::asset('build/js/plugins/apexcharts.min.js') }}"></script>
 <script>
+    // Initialise Feather Icons (nécessaire pour que les icônes `data-feather` s'affichent)
+    // S'assurer que la librairie Feather Icons est bien chargée dans le layout ou ici.
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+    }
+
     // Produits par mois
     new ApexCharts(document.querySelector("#chart-products-month"), {
         chart: { type: 'line' },
@@ -146,18 +172,32 @@
         xaxis: { categories: @json(array_keys($postsByMonth->toArray())) }
     }).render();
 
-    // Produits par catégorie
+    // Produits par catégorie (Diagramme circulaire)
     new ApexCharts(document.querySelector("#chart-products-category"), {
         chart: { type: 'pie' },
         series: @json($productsByCategory->pluck('products_count')->toArray()),
-        labels: @json($productsByCategory->pluck('name')->toArray())
+        labels: @json($productsByCategory->pluck('name')->toArray()),
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: { width: 200 },
+                legend: { position: 'bottom' }
+            }
+        }]
     }).render();
 
-    // Hot vs Occasion vs Normal
+    // Hot vs Occasion vs Normal (Diagramme en anneau)
     new ApexCharts(document.querySelector("#chart-products-comparison"), {
         chart: { type: 'donut' },
         series: @json(array_values($productComparison)),
-        labels: ['Hot', 'Occasion', 'Normal']
+        labels: ['Hot', 'Occasion', 'Normal'],
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: { width: 200 },
+                legend: { position: 'bottom' }
+            }
+        }]
     }).render();
 </script>
 @endsection
