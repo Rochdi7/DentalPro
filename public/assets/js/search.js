@@ -36,13 +36,13 @@ document.addEventListener("DOMContentLoaded", function() {
                             <div class="col-12 col-lg-6">
                                 <div class="ps-product ps-product--horizontal">
                                     <div class="ps-product__thumbnail">
-                                        <a class="ps-product__image" href="/produits/${product.slug}">
+                                        <a class="ps-product__image" href="/produit/${product.slug}">
                                             <figure><img src="${product.main_image_url}" alt="${product.title}"></figure>
                                         </a>
                                     </div>
                                     <div class="ps-product__content">
                                         <h5 class="ps-product__title">
-                                            <a href="/produits/${product.slug}">${product.title}</a>
+                                            <a href="/produit/${product.slug}">${product.title}</a>
                                         </h5>
                                         <div class="ps-product__meta">
                                             <span class="ps-product__price">${product.price} MAD</span>
