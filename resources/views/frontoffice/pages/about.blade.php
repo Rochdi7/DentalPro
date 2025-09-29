@@ -223,7 +223,7 @@
             </section>
 
             {{-- Vidéo ou Bannière statique --}}
-            <section class="ps-about--video">
+            {{-- <section class="ps-about--video">
                 <div class="ps-banner">
                     <div class="container">
                         <div class="ps-banner__block">
@@ -244,7 +244,6 @@
                             </div>
 
                             <div class="ps-banner__thumnail">
-                                {{-- Hidden video for lightgallery --}}
                                 <div style="display:none;" id="video1">
                                     <video class="lg-video-object lg-html5" controls preload="none">
                                         <source src="{{ asset('assets/vid/aboutus.mp4') }}" type="video/mp4">
@@ -252,12 +251,10 @@
                                     </video>
                                 </div>
 
-                                {{-- Poster image --}}
                                 <img class="ps-banner__image"
                                     src="{{ asset('assets/img/aboutus/goby-tD3GaS9ysF4-unsplash-1.webp') }}"
                                     alt="Vidéo présentation DentalPro">
 
-                                {{-- Play button for gallery --}}
                                 <div id="ps-video-gallery">
                                     <div class="video" data-html="#video1"
                                         data-poster="{{ asset('assets/img/aboutus/goby-tD3GaS9ysF4-unsplash-1.webp') }}">
@@ -270,8 +267,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
+            </section> --}}
 
             <section class="ps-section--reviews" data-background="{{ asset('assets/img/roundbg.png') }}">
                 <h3 class="ps-section__title">

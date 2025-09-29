@@ -176,7 +176,7 @@
                         <div class="ps-category--block">
                             <div class="ps-category__thumbnail">
                                 <a class="ps-category__image" href="category-grid.html">
-                                    <img src="{{ asset('assets/img/ads') }}" alt>
+                                    <img src="{{ asset('assets/img/ads/categorie1.webp') }}" alt>
                                 </a>
                                 <div class="ps-category__content">
                                     <a class="ps-category__name" href="category-grid.html">Rotatifs</a>

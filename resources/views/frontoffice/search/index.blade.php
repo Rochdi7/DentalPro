@@ -160,7 +160,7 @@
 
                         {{-- ✅ Bannière --}}
                         <div class="ps-delivery"
-                            data-background="{{ asset('assets/img/promotion/banner-delivery-2.jpg') }}">
+                            data-background="{{ asset('assets/img/ads/banner-delivery-2.webp') }}">
                             <div class="ps-delivery__content">
                                 <div class="ps-delivery__text">
                                     <i class="icon-shield-check"></i>
@@ -267,9 +267,9 @@
                             </div>
 
                             {{-- Bannière promo --}}
-                            <div class="ps-widget__promo">
+                            {{-- <div class="ps-widget__promo">
                                 <img src="{{ asset('assets/img/banner-sidebar1.jpg') }}" alt="Promo">
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>

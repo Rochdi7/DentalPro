@@ -136,26 +136,32 @@
         </div>
 
         <!-- Bas de page -->
-        <div class="ps-footer--bottom">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <p>
-                        Copyright © 2025 <strong style="margin-left: 4px">DentalPro</strong>. Tous droits réservés.
-                        <span style="margin-left:8px;">
-                            Développé par <a href="https://codesommet.com" target="_blank"
-                                style="color:#103178;font-weight:600;">CodeSommet</a>
-                        </span>
-                    </p>
-                </div>
+        <div class="ps-footer--bottom py-3">
+    <div class="container">
+        <div class="row align-items-center text-center text-md-start">
+            <!-- Left column -->
+            <div class="col-12 col-md-6 mb-2 mb-md-0">
+                <p class="mb-0 small">
+                    Copyright © 2025
+                    <strong class="ms-1">DentalPro</strong>. Tous droits réservés.
+                    <span class="d-block d-md-inline ms-md-2">
+                        Développé par
+                        <a href="https://codesommet.com" target="_blank"
+                           class="fw-semibold text-primary">CodeSommet</a>
+                    </span>
+                </p>
+            </div>
 
-                <div class="col-12 col-md-6 text-right">
-                    <img src="{{ asset('assets/img/payment.png') }}" alt="Paiements">
-                    <img class="payment-light" src="{{ asset('assets/img/payment-light.png') }}"
-                        alt="Paiements Light">
-                </div>
-
+            <!-- Right column -->
+            <div class="col-12 col-md-6 text-md-end">
+                <img src="{{ asset('assets/img/footerpayment.webp') }}" alt="Paiements" class="img-fluid me-2" style="max-height:30px;">
+                <img src="{{ asset('assets/img/footerpayment.webp') }}" alt="Paiements Light"
+                     class="img-fluid payment-light" style="max-height:30px;">
             </div>
         </div>
+    </div>
+</div>
+
     </div>
 </footer>
 </div>

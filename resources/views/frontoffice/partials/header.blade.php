@@ -351,11 +351,11 @@
                                             <div class="ps-promo">
                                                 <div class="ps-promo__item">
                                                     <img class="ps-promo__banner"
-                                                        src="{{ asset('assets/img/ads/bg-banner4.jpg') }}"
+                                                        src="{{ asset('assets/img/ads/bg-banner4.webp') }}"
                                                         alt="Promo 1" />
                                                     <div class="ps-promo__content">
                                                         <span class="ps-promo__badge">Nouveau</span>
-                                                        <h4 class="mb-20 ps-promo__name">Kit complet<br />stérilisation
+                                                        <h4 class="mb-20 ps-promo__name">Stérilisez en <br />toute confiance
                                                             -20%</h4>
                                                         <a class="ps-promo__btn"
                                                             href="{{ route('products.index') }}">Découvrir</a>
@@ -365,10 +365,10 @@
                                             <div class="ps-promo">
                                                 <div class="ps-promo__item">
                                                     <img class="ps-promo__banner"
-                                                        src="{{ asset('assets/img/ads/bg-banner5.jpg') }}"
+                                                        src="{{ asset('assets/img/ads/bg-banner5.webp') }}"
                                                         alt="Promo 2" />
                                                     <div class="ps-promo__content">
-                                                        <h4 class="ps-promo__name">Lampe LED <br />polymérisation</h4>
+                                                        <h4 class="ps-promo__name" style="color: white">Bénéficiez d'un <br />diagnostic gratuit</h4>
                                                         <div class="ps-promo__sale">-15%</div>
                                                         <a class="ps-promo__btn"
                                                             href="{{ route('products.index') }}">Acheter</a>
